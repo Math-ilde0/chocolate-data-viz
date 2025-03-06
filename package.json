@@ -1,0 +1,21 @@
+{
+  "name": "chocolate-data-viz",
+  "version": "1.0.0",
+  "description": "Projet de visualisation de données sur l’histoire du chocolat, son importation en Suisse et son évolution au fil du temps. Nous allons créer notre propre jeu de données et le combiner avec des sources existantes.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "d3": "^7.9.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
