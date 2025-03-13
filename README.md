@@ -12,42 +12,43 @@ Les données proviennent de plusieurs sources externes ainsi que de nos propres 
 
 1. Histoire et Origine du Chocolat
    
-📌 "Découverte et commercialisation du chocolat"
+📌 "Histoire et découverte cacao par Christophe Colomb"
 
-🔗 https://maxdaumin.com/blog/le-grimoire/histoire-du-cacao?slug=histoire-du-cacao&module=smartblog#:~:text=D%C3%A9couverte%20et%20commercialisation%20du%20cacao,appr%C3%A9ci%C3%A9%20sa%20valeur%20potentielle%20impressionnante.
+🔗 [https://maxdaumin.com/blog/le-grimoire/histoire-du-cacao](https://maxdaumin.com/blog/le-grimoire/histoire-du-cacao)
+
+📊 Type de données : Qualitative nominale
+
+📌 L'origine du chocolat en Suisse ?
+
+🔗 [https://www.portail-du-chocolat.ch/guides/histoire-chocolat-suisse?utm_source=chatgpt.com](https://www.portail-du-chocolat.ch/guides/histoire-chocolat-suisse)
 
 📊 Type de données : Qualitative nominale
 
+📌 Histoire de la marque Cailler
 
-📌 "Quelle est l'origine du chocolat et comment est-il arrivé en Suisse ?"
+🔗 https://fr.wikipedia.org/wiki/Chocolat_Cailler 
 
-🔗 https://www.portail-du-chocolat.ch/guides/histoire-chocolat-suisse?utm_source=chatgpt.com
-
-📊 Type de données : Qualitative nominale
+📊 Type de données : Quantitative discrète
 
 
 2. Pionniers et Innovations de l'Industrie Chocolatière Suisse
    
 📌 "Quels ont été les pionniers de l'industrie chocolatière suisse et quelles innovations ont-ils apportées ?"
 
-🔗 https://www.chocosuisse.ch/fr/services/faits-chiffres
+🔗 [https://www.chocosuisse.ch/fr/services/faits-chiffres](https://www.chocosuisse.ch/fr/services/faits-chiffres) 
+
+📌 Daniel Peter et l'invention du chocolat au lait
+
+🔗 [https://fr.wikipedia.org/wiki/Daniel_Peter](https://fr.wikipedia.org/wiki/Daniel_Peter) 
 
 📊 Type de données : Qualitative nominale
 
-🔗 https://fr.wikipedia.org/
 
-📊 Type de données : Qualitative nominale
-
-
-3. Consommation de Chocolat en Suisse
+3. Consommation de Chocolat en Suisse et dans le monde 
    
-📌 "Quelle est la consommation annuelle de chocolat en Suisse par habitant et comment a-t-elle évolué ces dernières années ?"
+📌 Consommation de chocolat en Suisse et dans le monde : tendances et évolution
 
-🔗 https://www.chocosuisse.ch/fr/services/faits-chiffres
-
-📊 Type de données : Quantitative continue
-
-🔗 https://www.rts.ch
+🔗 [https://www.chocosuisse.ch/fr/services/faits-chiffres](https://www.chocosuisse.ch/fr/services/faits-chiffres) 
 
 📊 Type de données : Quantitative continue
 
@@ -60,42 +61,33 @@ Les données proviennent de plusieurs sources externes ainsi que de nos propres 
 
 📊 Type de données : Quantitative continue et discrète
 
-📌 "Quels sont les principaux fabricants de chocolat en Suisse et quelles sont leurs contributions à l'industrie chocolatière ?"
 
-🔗 https://www.eda.admin.ch/
+📌 Origine, innovations et production du chocolat suisse
+
+🔗 [https://www.eda.admin.ch/](https://www.aboutswitzerland.eda.admin.ch/fr/chocolat) 
 
 📊 Type de données : Qualitative nominale et quantitative continue
 
 
 5. Musées du Chocolat en Suisse
    
-📌 "Quels musées du chocolat peut-on visiter en Suisse et que proposent-ils aux visiteurs ?"
+📌 Fréquentation du Lindt Home of Chocolate en 2023
 
-🔗 https://www.chocosuisse.ch/fr/services/faits-chiffres
+🔗 [https://www.lindt-home-of-chocolate.com/fr/actualites-et-newsletter/le-lindt-home-of-chocolate-celebre-une-annee-record-avec-plus-de-750-000-visiteurs/ ](https://www.lindt-home-of-chocolate.com/fr/actualites-et-newsletter/le-lindt-home-of-chocolate-celebre-une-annee-record-avec-plus-de-750-000-visiteurs/#:~:text=En%202023%2C%20la%20Lindt%20Chocolate,sa%20troisième%20année%20d'existence.) 
 
-📊 Type de données : Qualitative nominale
+📊 Type de données : Quantitative discrète
 
+📌 Fréquentation de la Maison Cailler en 2023
 
-6. Consommation de Chocolat dans le Monde
-   
-📌 "Consommation de chocolat dans le monde"
+🔗[ [https://www.lindt-home-of-chocolate.com/fr/actualites-et-newsletter/le-lindt-home-of-chocolate-celebre-une-annee-record-avec-plus-de-750-000-visiteurs/ ](https://www.lindt-home-of-chocolate.com/fr/actualites-et-newsletter/le-lindt-home-of-chocolate-celebre-une-annee-record-avec-plus-de-750-000-visiteurs/) ](https://www.swissinfo.ch/fre/la-maison-cailler-fête-ses-15-ans-après-un-record-de-fréquentation/88834812#:~:text=A%20partir%20de%20mai%2C%20un,17%25%20au%20regard%20de%202022.)
 
-🔗 https://www.portail-du-chocolat.ch/guides/chiffres-chocolat-suisse
+📊 Type de données : Quantitative discrète
 
-📊 Type de données : Quantitative continue
+📌 Fréquentation du Centre Visiteurs Camille Bloch en 2023
 
+🔗 https://camillebloch.ch/app/uploads/2024/05/CamilleBloch_FactsFigures_2023_FR4.pdf
 
-7. Visualisation des Données (Data Viz existante)
-   
-📌 "Chocolate Data Viz (déjà existante)"
-
-🔗 https://datavizblog.com/category/chocolate/
-
-📊 Type de données : Représentation visuelle de données quantitatives
-
-🔗 https://fr.pinterest.com/pin/748019819336345115/
-
-📊 Type de données : Représentation visuelle de données quantitatives
+📊 Type de données : Quantitative discrète
 
 
 ## Objectifs du projet
