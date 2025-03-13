@@ -10,6 +10,7 @@ L’implémentation repose sur **D3.js** pour générer des visualisations inter
 
 Les données proviennent de plusieurs sources externes ainsi que de nos propres recherches et analyses. Elles couvrent différents aspects du chocolat :
 
+
 1. Histoire et Origine du Chocolat
    
 📌 "Histoire et découverte cacao par Christophe Colomb"
@@ -30,6 +31,11 @@ Les données proviennent de plusieurs sources externes ainsi que de nos propres 
 
 📊 Type de données : Quantitative discrète
 
+📌 Anectdote exportataion de la recette 
+
+🔗 [https://fr.wikipedia.org/wiki/Chocolat_Cailler ](https://fr.wikipedia.org/wiki/Chocolat_belge ) 
+
+📊 Type de données : Quantitative discrète
 
 2. Pionniers et Innovations de l'Industrie Chocolatière Suisse
    
