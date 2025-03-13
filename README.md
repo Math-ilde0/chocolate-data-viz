@@ -10,56 +10,56 @@ L’implémentation repose sur **D3.js** pour générer des visualisations inter
 
 Les données proviennent de plusieurs sources externes ainsi que de nos propres recherches et analyses. Elles couvrent différents aspects du chocolat :
 
-### 1. Histoire et Origine du Chocolat
-- **Découverte et commercialisation du chocolat**  
-  🔗 [Histoire du cacao et de sa commercialisation](lien_source)  
-  📊 Type : Qualitative nominale  
-- **Arrivée du chocolat en Suisse**  
-  🔗 [Comment le chocolat est arrivé en Suisse](lien_source)  
-  📊 Type : Qualitative nominale  
-
-### 2. Pionniers et Innovations de l’Industrie Chocolatière Suisse
-- **Les pionniers de l’industrie chocolatière suisse et leurs innovations**  
-  🔗 [Histoire des pionniers – Chocosuisse.ch](lien_source)  
-  🔗 [Histoire du chocolat – Wikipédia](lien_source)  
-  📊 Type : Qualitative nominale  
-
-### 3. Consommation de Chocolat en Suisse
-- **Évolution de la consommation annuelle par habitant**  
-  🔗 [Chocosuisse – Données 2023](lien_source)  
-  🔗 [RTS – Baisse de la consommation en 2020](lien_source)  
-  📊 Type : Quantitative continue  
-
-### 4. Marché et Économie du Chocolat Suisse
-- **Répartition des ventes entre la Suisse et l’étranger**  
-  🔗 [Chocosuisse – Marché du chocolat suisse](lien_source)  
-  📊 Type : Quantitative continue et discrète  
-- **Principaux fabricants et leur contribution**  
-  🔗 [EDA – Fabricants de chocolat](lien_source)  
-  📊 Type : Qualitative nominale et quantitative continue  
-
-### 5. Musées du Chocolat en Suisse
-- **Musées et expériences proposées**  
-  🔗 [Maison Cailler, Lindt Home of Chocolate, Camille Bloch, House of Läderach](lien_source)  
-  📊 Type : Qualitative nominale  
-
-### 6. Consommation de Chocolat dans le Monde
-- **Statistiques mondiales sur la consommation**  
-  🔗 [Chiffres mondiaux sur la consommation de chocolat](lien_source)  
-  📊 Type : Quantitative continue  
-
-### 7. Visualisation des Données Existantes
-- **Exemples de visualisation sur le chocolat**  
-  🔗 [Chocolate Data Viz](lien_source)  
-  🔗 [Pinterest – Graphiques sur le chocolat](lien_source)  
-  📊 Type : Représentation visuelle de données quantitatives  
-
-### 8. Éléments Visuels pour Illustrations
-- **Illustrations et icônes pour le projet**  
-  🔗 [Icônes et illustrations générales](lien_source)  
-  🔗 [Illustration de la production de chocolat](lien_source)  
-  🔗 [Symboles et graphiques suisses](lien_source)  
-  📊 Type : Qualitative nominale  
+1. Histoire et Origine du Chocolat
+📌 "Découverte et commercialisation du chocolat"
+🔗 https://maxdaumin.com/blog/le-grimoire/histoire-du-cacao?slug=histoire-du-cacao&module=smartblog#:~:text=D%C3%A9couverte%20et%20commercialisation%20du%20cacao,appr%C3%A9ci%C3%A9%20sa%20valeur%20potentielle%20impressionnante.
+📊 Type de données : Qualitative nominale
+📌 "Quelle est l'origine du chocolat et comment est-il arrivé en Suisse ?"
+🔗 https://www.portail-du-chocolat.ch/guides/histoire-chocolat-suisse?utm_source=chatgpt.com
+📊 Type de données : Qualitative nominale
+2. Pionniers et Innovations de l'Industrie Chocolatière Suisse
+📌 "Quels ont été les pionniers de l'industrie chocolatière suisse et quelles innovations ont-ils apportées ?"
+🔗 https://www.chocosuisse.ch/fr/services/faits-chiffres
+📊 Type de données : Qualitative nominale
+🔗 https://fr.wikipedia.org/
+📊 Type de données : Qualitative nominale
+3. Consommation de Chocolat en Suisse
+📌 "Quelle est la consommation annuelle de chocolat en Suisse par habitant et comment a-t-elle évolué ces dernières années ?"
+🔗 https://www.chocosuisse.ch/fr/services/faits-chiffres
+📊 Type de données : Quantitative continue
+🔗 https://www.rts.ch
+📊 Type de données : Quantitative continue
+4. Marché et Économie du Chocolat Suisse
+📌 "Quelle est la part du chocolat suisse dans le marché intérieur et comment se répartissent les ventes entre la Suisse et l'étranger ?"
+🔗 https://www.chocosuisse.ch/fr/services/faits-chiffres
+📊 Type de données : Quantitative continue et discrète
+📌 "Quels sont les principaux fabricants de chocolat en Suisse et quelles sont leurs contributions à l'industrie chocolatière ?"
+🔗 https://www.eda.admin.ch/
+📊 Type de données : Qualitative nominale et quantitative continue
+5. Musées du Chocolat en Suisse
+📌 "Quels musées du chocolat peut-on visiter en Suisse et que proposent-ils aux visiteurs ?"
+🔗 https://www.chocosuisse.ch/fr/services/faits-chiffres
+📊 Type de données : Qualitative nominale
+6. Consommation de Chocolat dans le Monde
+📌 "Consommation de chocolat dans le monde"
+🔗 https://www.portail-du-chocolat.ch/guides/chiffres-chocolat-suisse
+📊 Type de données : Quantitative continue
+7. Visualisation des Données (Data Viz existante)
+📌 "Chocolate Data Viz (déjà existante)"
+🔗 https://datavizblog.com/category/chocolate/
+📊 Type de données : Représentation visuelle de données quantitatives
+🔗 https://fr.pinterest.com/pin/748019819336345115/
+📊 Type de données : Représentation visuelle de données quantitatives
+8. Éléments Visuels pour Illustrations
+📌 "Elements visuels"
+🔗 https://fr.freepik.com/vecteurs-libre/ensemble-icones-vectorielles-desserts-au-chocolat-bonbons-chocolat-liquide-feves-cacao_1215619.htm
+📊 Type de données : Qualitative nominale
+📌 "Milk & dark chocolate"
+🔗 https://fr.freepik.com/vecteurs-libre/production-chocolat-ensemble-isomerique-feves-cacao-matieres-premieres-lignes-usine-automatisees-bonbons-barres-illustration-vectorielle-isolee_26760360.htm
+📊 Type de données : Qualitative nominale
+📌 "Suisse symboles"
+🔗 https://fr.freepik.com/vecteurs-libre/jeu-symboles-suisse_2875662.htm
+📊 Type de données : Qualitative nominale
 
 ## Objectifs du projet
 
