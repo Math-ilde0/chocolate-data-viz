@@ -1,0 +1,245 @@
+/* Variables et reset */
+:root {
+    --primary-color: #5c3d2e;
+    --secondary-color: #b85c38;
+    --accent-color: #e0a458;
+    --light-bg: #f9ecd9;
+    --dark-text: #2d2424;
+    --white: #ffffff;
+    --transition: all 0.3s ease;
+    --timeline-color: #8b5a2b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-text);
+    background-color: var(--light-bg);
+    overflow-x: hidden;
+}
+
+/* Header styles */
+header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 2rem;
+    text-align: center;
+    background-image: linear-gradient(rgba(92, 61, 46, 0.9), rgba(92, 61, 46, 0.9));
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Scrollytelling layout */
+#scrollytelling {
+    position: relative;
+}
+
+.scroll-section {
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+.sticky-graphic {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 50%;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.viz-container {
+    width: 90%;
+    height: 80%;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+}
+
+.scroll-content {
+    width: 50%;
+    float: right;
+    padding: 5vh 5% 10vh;
+}
+
+.scroll-content h2 {
+    font-size: 2.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.scroll-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+.scroll-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Even sections alternative style */
+.scroll-section:nth-child(even) .sticky-graphic {
+    float: right;
+}
+
+.scroll-section:nth-child(even) .scroll-content {
+    float: left;
+}
+
+/* Footer */
+footer {
+    clear: both;
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+    .sticky-graphic, .scroll-content {
+        width: 100%;
+        float: none;
+    }
+    
+    .sticky-graphic {
+        height: 50vh;
+    }
+    
+    .scroll-content {
+        padding-top: 2rem;
+    }
+    
+    .scroll-section:nth-child(even) .sticky-graphic,
+    .scroll-section:nth-child(even) .scroll-content {
+        float: none;
+    }
+}
+
+/* Visualization specific styles */
+.axis path,
+.axis line {
+    stroke: #ccc;
+}
+
+.axis text {
+    fill: var(--dark-text);
+    font-size: 12px;
+}
+
+.tooltip {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Timeline specific styles */
+.timeline-line {
+    stroke: var(--timeline-color);
+    stroke-width: 3px;
+}
+
+.timeline-node {
+    fill: var(--accent-color);
+    stroke: var(--primary-color);
+    stroke-width: 2px;
+}
+
+.timeline-label {
+    font-size: 12px;
+    fill: var(--dark-text);
+}
+
+.timeline-year {
+    font-weight: bold;
+    font-size: 14px;
+    fill: var(--secondary-color);
+}
+
+/* Map specific styles */
+.country {
+    stroke: #fff;
+    stroke-width: 0.5px;
+}
+
+.country:hover {
+    stroke: var(--secondary-color);
+    stroke-width: 2px;
+}
+
+/* Bar chart styles */
+.bar {
+    fill: var(--secondary-color);
+    transition: fill 0.3s ease;
+}
+
+.bar:hover {
+    fill: var(--accent-color);
+}
+
+/* Pie chart styles */
+.pie-slice {
+    transition: opacity 0.3s ease;
+}
+
+.pie-slice:hover {
+    opacity: 0.8;
+}
+
+/* Animation classes */
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+
+.slide-in {
+    transform: translateY(50px);
+    opacity: 0;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.slide-in.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
