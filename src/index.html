@@ -8,24 +8,53 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
-    <header>
-        <h1>L'Histoire du Chocolat Suisse</h1>
-        <p>Une exploration visuelle de l'histoire, de la production et de la consommation du chocolat suisse</p>
-    </header>
 
     <main id="scrollytelling">
-        <!-- Section 1: Histoire du chocolat avec 5 dates clés -->
-        <section class="scroll-section" id="section-1">
-            <div class="sticky-graphic">
-                <div id="viz-1" class="viz-container"></div>
-            </div>
-            <div class="scroll-content">
-                <h2>L'Histoire du Chocolat</h2>
-                <p>De ses origines mésoaméricaines à son adoption en Suisse, découvrez les moments clés qui ont façonné l'histoire du chocolat.</p>
-                <p>Ces cinq dates fondamentales ont marqué des tournants décisifs dans l'évolution du chocolat et son importance culturelle.</p>
-                <!-- Contenu supplémentaire ici -->
+        <section class="scroll-section intro-screen" id="intro">
+            <div class="intro-content">
+                <h1>L'Histoire du Chocolat Suisse</h1>
+                <h2>Une exploration visuelle de l'histoire, de la production et de la consommation du chocolat suisse</h2>
+                <p class="team">Réalisé par : Samuel Teixeira, Estelle Rossier & Mathilde Jaccard </p>
+                <p class="scroll-hint">▼ Faites défiler pour commencer l'exploration ▼</p>
             </div>
         </section>
+        
+        <!-- Section 1: Histoire du chocolat avec 5 dates clés -->
+<section class="scroll-section full-timeline" id="section-1">
+    <!-- Timeline verticale -->
+    <svg id="timeline-svg"></svg>
+
+    <!-- Pages verticales des événements -->
+    <div class="scroll-pages-container">
+        <div class="scroll-page" data-step="1">
+            <h2>1502 – Christophe Colomb découvre le cacao</h2>
+            <p>Lors d'une escale au Nicaragua, Christophe Colomb aperçoit des fèves de cacao, mais n'en mesure pas encore la valeur.</p>
+            <img src="images/colomb-cacao.jpg" alt="Christophe Colomb observe des fèves de cacao avec une loupe">
+        </div>
+
+        <div class="scroll-page" data-step="2">
+            <h2>1528 – Hernán Cortés ramène le cacao en Espagne</h2>
+            <p>Le cacao devient populaire dans l’aristocratie espagnole après la conquête de l’Empire aztèque.</p>
+        </div>
+
+        <div class="scroll-page" data-step="3">
+            <h2>1679 – Chocolat chaud introduit en Suisse</h2>
+            <p>Henri Escher, maire de Zurich, découvre le chocolat à Bruxelles et l’apporte en Suisse.</p>
+        </div>
+
+        <div class="scroll-page" data-step="4">
+            <h2>1818 – Première manufacture de chocolat</h2>
+            <p>François-Louis Cailler ouvre la première usine mécanisée de chocolat à Vevey.</p>
+        </div>
+
+        <div class="scroll-page" data-step="5">
+            <h2>1875 – Invention du chocolat au lait</h2>
+            <p>Daniel Peter, avec Henri Nestlé, invente le chocolat au lait en utilisant du lait condensé.</p>
+        </div>
+    </div>
+</section>
+
+        
 
         <!-- Section 2: Récolte mondiale du cacao -->
         <section class="scroll-section" id="section-2">
@@ -120,7 +149,7 @@
     </main>
 
     <footer>
-        <p>Projet universitaire de visualisation de données | 2025</p>
+        <p>Projet HEIG-VD de visualisation de données | 2025</p>
     </footer>
 
     <script type="module" src="./src/data_loader.js"></script>

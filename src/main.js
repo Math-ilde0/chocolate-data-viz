@@ -50,6 +50,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Initialisation des visualisations
     initVisualizations();
     
+    setupStepScrollTimeline();
+
     // Affichage de la première visualisation
     updateVisualization(1);
 });
@@ -164,39 +166,95 @@ function hideLoader() {
 // Configuration du scrollytelling
 function setupScrollTriggers() {
     const sections = document.querySelectorAll('.scroll-section');
-    
+
     // Options pour l'Intersection Observer
     const options = {
         root: null,
         rootMargin: '0px',
         threshold: 0.5
     };
-    
+
     // Créer un observer pour chaque section
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const sectionId = entry.target.id;
-                const sectionNumber = parseInt(sectionId.split('-')[1]);
                 
+                // Vérifie si l'ID suit le format section-N
+                const match = sectionId.match(/section-(\d+)/);
+                if (!match) return;  // Ignore les sections comme l'intro
+
+                const sectionNumber = parseInt(match[1]);
+
                 // Mise à jour de la section active
                 state.currentSection = sectionNumber;
                 console.log(`Section active: ${sectionNumber}`);
-                
+
                 // Mise à jour de la visualisation
                 updateVisualization(sectionNumber);
-                
+
                 // Animation du contenu
                 animateContent(entry.target);
             }
         });
     }, options);
-    
+
     // Observer chaque section
     sections.forEach(section => {
         observer.observe(section);
     });
 }
+
+function setupStepScrollTimeline() {
+    const steps = document.querySelectorAll('#section-1 .scroll-page');
+    const svg = d3.select("#timeline-svg");
+
+    const height = document.querySelector("#viz-1").clientHeight;
+    const width = document.querySelector("#viz-1").clientWidth;
+    svg.attr("viewBox", `0 0 200 ${height}`)
+       .attr("preserveAspectRatio", "xMidYMid meet");
+
+    const points = steps.length;
+    const stepHeight = height / points;
+    const pathData = d3.range(points).map(i => [100, i * stepHeight + 50]);
+
+    const lineGen = d3.line();
+    svg.append("path")
+        .attr("d", lineGen(pathData))
+        .attr("stroke", "#8b5a2b")
+        .attr("stroke-width", 4)
+        .attr("fill", "none");
+
+    const circles = svg.selectAll("circle")
+        .data(pathData)
+        .enter()
+        .append("circle")
+        .attr("cx", d => d[0])
+        .attr("cy", d => d[1])
+        .attr("r", 0)
+        .attr("fill", "#e0a458");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const el = entry.target;
+            if (entry.isIntersecting) {
+                el.classList.add("visible");
+                const index = parseInt(el.dataset.step) - 1;
+
+                svg.selectAll("circle")
+                    .filter((d, i) => i === index)
+                    .transition()
+                    .duration(400)
+                    .attr("r", 8);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    steps.forEach(step => observer.observe(step));
+}
+
+
+
 
 // Animation du contenu lors du défilement
 function animateContent(section) {
@@ -226,8 +284,6 @@ function initVisualizations() {
     
     console.log("Initialisation des visualisations...");
     
-    // Histoire du chocolat - Timeline
-    state.charts[1] = new TimelineChart('#viz-1', state.data.historique);
     
     // Récolte mondiale - Carte
     state.charts[2] = new WorldMapChart('#viz-2');

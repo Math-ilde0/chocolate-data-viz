@@ -1,4 +1,3 @@
-/* Variables et reset */
 :root {
     --primary-color: #5c3d2e;
     --secondary-color: #b85c38;
@@ -50,14 +49,82 @@ header p {
 /* Scrollytelling layout */
 #scrollytelling {
     position: relative;
+    scroll-snap-type: y mandatory;
 }
 
 .scroll-section {
     min-height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    flex-wrap: wrap;
     position: relative;
     z-index: 1;
 }
 
+/* Section 1 – pleine page avec timeline verticale */
+.full-timeline {
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.full-timeline #timeline-svg {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100vh;
+    width: 4px;
+    z-index: 1;
+    background-color: var(--timeline-color);
+}
+
+.scroll-pages-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    z-index: 2;
+    background-color: var(--light-bg);
+}
+
+.scroll-page {
+    height: 100vh;
+    scroll-snap-align: start;
+    padding: 4rem 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0.4;
+    transition: opacity 0.6s ease;
+}
+
+.scroll-page.visible {
+    opacity: 1;
+}
+
+.scroll-page h2 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.scroll-page p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.scroll-page img {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 1rem;
+    border-radius: 8px;
+}
+
+/* Sections suivantes */
 .sticky-graphic {
     position: sticky;
     top: 0;
@@ -67,6 +134,7 @@ header p {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: #f3f3f3;
 }
 
 .viz-container {
@@ -83,6 +151,9 @@ header p {
     width: 50%;
     float: right;
     padding: 5vh 5% 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .scroll-content h2 {
@@ -108,7 +179,7 @@ header p {
     margin-bottom: 1.5rem;
 }
 
-/* Even sections alternative style */
+/* Even sections style */
 .scroll-section:nth-child(even) .sticky-graphic {
     float: right;
 }
@@ -127,28 +198,63 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Responsive adjustments */
+/* Scroll-triggered content animations */
+.scroll-section .scroll-content > * {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-section.active .scroll-content > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
 @media screen and (max-width: 1024px) {
-    .sticky-graphic, .scroll-content {
+    .sticky-graphic,
+    .scroll-content,
+    .scroll-pages-container {
         width: 100%;
         float: none;
     }
-    
+
     .sticky-graphic {
         height: 50vh;
     }
-    
-    .scroll-content {
+
+    .scroll-content,
+    .scroll-pages-container {
         padding-top: 2rem;
     }
-    
+
     .scroll-section:nth-child(even) .sticky-graphic,
     .scroll-section:nth-child(even) .scroll-content {
         float: none;
     }
 }
 
-/* Visualization specific styles */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    .scroll-content h2,
+    .scroll-page h2 {
+        font-size: 1.8rem;
+    }
+
+    .scroll-content p,
+    .scroll-page p {
+        font-size: 1rem;
+    }
+
+    .viz-container {
+        height: 60vh;
+    }
+}
+
+/* Visualisation styles */
 .axis path,
 .axis line {
     stroke: #ccc;
@@ -170,7 +276,7 @@ footer {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Timeline specific styles */
+/* Timeline visuals */
 .timeline-line {
     stroke: var(--timeline-color);
     stroke-width: 3px;
@@ -193,7 +299,7 @@ footer {
     fill: var(--secondary-color);
 }
 
-/* Map specific styles */
+/* Maps */
 .country {
     stroke: #fff;
     stroke-width: 0.5px;
@@ -204,7 +310,7 @@ footer {
     stroke-width: 2px;
 }
 
-/* Bar chart styles */
+/* Charts */
 .bar {
     fill: var(--secondary-color);
     transition: fill 0.3s ease;
@@ -214,7 +320,6 @@ footer {
     fill: var(--accent-color);
 }
 
-/* Pie chart styles */
 .pie-slice {
     transition: opacity 0.3s ease;
 }
@@ -223,7 +328,7 @@ footer {
     opacity: 0.8;
 }
 
-/* Animation classes */
+/* Animations */
 .fade-in {
     opacity: 0;
     transition: opacity 1s ease;
@@ -242,4 +347,46 @@ footer {
 .slide-in.visible {
     transform: translateY(0);
     opacity: 1;
+}
+
+/* Intro screen */
+.intro-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+    background-color: var(--primary-color);
+    color: var(--white);
+    flex-direction: column;
+    padding: 2rem;
+    scroll-snap-align: start;
+}
+
+.intro-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.intro-content h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+}
+
+.intro-content .team {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 2rem;
+}
+
+.scroll-hint {
+    font-size: 1rem;
+    opacity: 0.8;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
 }
