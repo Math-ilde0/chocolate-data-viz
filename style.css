@@ -390,3 +390,13 @@ footer {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(10px); }
 }
+
+/* Diagnostic styles - remove after debugging */
+#viz-4 {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    min-height: 300px;
+}
+
+svg {
+    display: block;
+}

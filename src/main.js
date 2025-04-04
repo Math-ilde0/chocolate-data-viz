@@ -2,6 +2,10 @@
  * Script principal pour la gestion du scrollytelling et de l'interaction
  */
 
+import { drawConsommationChart } from "/src/consommationChart.js";
+import { loadAllData } from "./data_loader.js";
+
+  
 // Configuration globale
 const config = {
     transitionDuration: 800,
@@ -31,28 +35,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     showLoader();
     
     try {
-        // Chargement des données
-        await loadAllData();
+        // Chargement des données et affectation à state
+        const loadedData = await loadAllData();
+        state.data = loadedData;
         state.isDataLoaded = true;
     } catch (error) {
         console.error("Erreur lors du chargement des données:", error);
-        // Afficher un message d'erreur à l'utilisateur
         showErrorMessage("Impossible de charger les données. Veuillez rafraîchir la page ou réessayer plus tard.");
         return;
     }
     
-    // Cacher le loader
     hideLoader();
-    
-    // Configuration du scrollytelling
     setupScrollTriggers();
-    
-    // Initialisation des visualisations
     initVisualizations();
-    
     setupStepScrollTimeline();
-
-    // Affichage de la première visualisation
     updateVisualization(1);
 });
 
@@ -355,3 +351,5 @@ function debounce(func, wait) {
         }, wait);
     };
 }
+
+drawConsommationChart("#viz-4", "/data/comparaison_ventes_exportations_chocolat.csv");

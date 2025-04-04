@@ -1,25 +1,26 @@
+import * as d3 from "d3";
+
 /**
  * Module de chargement des données pour le projet de visualisation du chocolat
  */
 
-// Fonction pour charger toutes les données
-export async function loadAllData() { 
+// Fonction pour charger toutes les données et retourner un objet
+export async function loadAllData() {
     try {
-        state.data = {
+        const data = {
             historique: await loadHistoriqueChocolat(),
             consommation: await loadConsommationSuisse(),
             fabricants: await loadFabricantsSuisse(),
             importation: await loadImportationSuisse(),
             musees: await loadFrequentationMusees()
         };
-        console.log("Toutes les données chargées avec succès:", state.data);
-        return state.data;
+        console.log("Toutes les données chargées avec succès:", data);
+        return data;
     } catch (error) {
         console.error("Erreur lors du chargement des données:", error);
         throw error;
     }
 }
-
 
 // Charger l'historique du chocolat
 async function loadHistoriqueChocolat() {
@@ -97,5 +98,11 @@ async function loadFrequentationMusees() {
     }
 }
 
-// Exporter les fonctions pour une utilisation dans d'autres modules
-export { loadAllData, loadHistoriqueChocolat, loadConsommationSuisse, loadFabricantsSuisse, loadImportationSuisse, loadFrequentationMusees };
+// Exporter toutes les fonctions
+export {
+    loadHistoriqueChocolat,
+    loadConsommationSuisse,
+    loadFabricantsSuisse,
+    loadImportationSuisse,
+    loadFrequentationMusees
+};
