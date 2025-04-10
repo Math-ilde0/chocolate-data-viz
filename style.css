@@ -400,3 +400,128 @@ footer {
 svg {
     display: block;
 }
+
+/* === Globe D3.js === */
+#viz-3 svg {
+    width: 100%;
+    height: 100%;
+}
+
+#viz-3 .countries {
+    stroke: #ccc;
+    stroke-width: 0.4;
+}
+
+#viz-3 .legend-bar {
+    margin: 10px 0;
+    font-size: 12px;
+    color: var(--dark-text);
+    text-align: center;
+}
+
+#viz-3 .legend-title {
+    font-size: 12px;
+    font-weight: bold;
+    fill: var(--dark-text);
+}
+
+/* Container pour échelles côte à côte */
+#viz-3 .color-scales-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 10px 0;
+}
+
+#viz-3 .color-scale {
+    width: 45%;
+    height: auto;
+}
+
+/* === Tooltip Globe === */
+#globe-tooltip {
+    position: absolute;
+    display: none;
+    pointer-events: none;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 13px;
+    line-height: 1.5;
+    z-index: 999;
+    max-width: 220px;
+}
+
+#globe-tooltip img {
+    height: 18px;
+    width: 30px;
+    object-fit: contain;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+/* === SECTION GLOBE CENTRÉE (viz-3) === */
+.centered-globe-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-bg);
+    text-align: center;
+    padding: 1vh 1vw;
+}
+
+.full-screen-graphic {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.full-screen-graphic h2 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem; /* ← Réduit ici aussi */
+  }
+
+.viz-container.globe-only {
+    width: 100%;
+    height: 900px; /* ← Avant c'était probablement 500px */
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+/* Légendes production + consommation */
+.legends-container {
+    margin-bottom: 0.5rem; /* ← Réduit l’espace sous les légendes */
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  
+  .legend-box {
+    max-width: 360px;
+    width: 100%;
+  }
+  
+
+.globe-tooltip {
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    pointer-events: none;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 9999;
+  }
+  

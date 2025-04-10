@@ -23,34 +23,7 @@
     <!-- Timeline verticale -->
     <svg id="timeline-svg"></svg>
 
-    <!-- Pages verticales des événements -->
-    <div class="scroll-pages-container">
-        <div class="scroll-page" data-step="1">
-            <h2>1502 – Christophe Colomb découvre le cacao</h2>
-            <p>Lors d'une escale au Nicaragua, Christophe Colomb aperçoit des fèves de cacao, mais n'en mesure pas encore la valeur.</p>
-            <img src="images/colomb-cacao.jpg" alt="Christophe Colomb observe des fèves de cacao avec une loupe">
-        </div>
-
-        <div class="scroll-page" data-step="2">
-            <h2>1528 – Hernán Cortés ramène le cacao en Espagne</h2>
-            <p>Le cacao devient populaire dans l’aristocratie espagnole après la conquête de l’Empire aztèque.</p>
-        </div>
-
-        <div class="scroll-page" data-step="3">
-            <h2>1679 – Chocolat chaud introduit en Suisse</h2>
-            <p>Henri Escher, maire de Zurich, découvre le chocolat à Bruxelles et l’apporte en Suisse.</p>
-        </div>
-
-        <div class="scroll-page" data-step="4">
-            <h2>1818 – Première manufacture de chocolat</h2>
-            <p>François-Louis Cailler ouvre la première usine mécanisée de chocolat à Vevey.</p>
-        </div>
-
-        <div class="scroll-page" data-step="5">
-            <h2>1875 – Invention du chocolat au lait</h2>
-            <p>Daniel Peter, avec Henri Nestlé, invente le chocolat au lait en utilisant du lait condensé.</p>
-        </div>
-    </div>
+    a
 </section>
 
         
@@ -68,18 +41,23 @@
             </div>
         </section>
 
-        <!-- Section 3: Évolution du volume de cacao -->
-        <section class="scroll-section" id="section-3">
-            <div class="sticky-graphic">
-                <div id="viz-3" class="viz-container"></div>
-            </div>
-            <div class="scroll-content">
-                <h2>Évolution du Volume de Cacao</h2>
-                <p>La production mondiale de cacao a connu des fluctuations importantes dues aux conditions climatiques, aux maladies et aux facteurs économiques.</p>
-                <p>Cette tendance historique illustre comment le volume de production a évolué et son impact sur l'industrie chocolatière.</p>
-                <!-- Contenu supplémentaire ici -->
-            </div>
-        </section>
+<!-- Section 3: Évolution du volume de cacao -->
+<section class="scroll-section centered-globe-section" id="section-3">
+    <div class="full-screen-graphic">
+      
+  
+      <div id="viz-3" class="viz-container globe-only">
+        <h2>Consommation et Production de Cacao</h2>
+        <!-- Le globe sera injecté ici par D3 -->
+        <div class="legends-container">
+          <div id="color-scale" class="legend-box"></div>
+          <div id="consumption-scale" class="legend-box"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
 
         <!-- Section 4: Consommation mondiale et en Suisse -->
         <section class="scroll-section" id="section-4">

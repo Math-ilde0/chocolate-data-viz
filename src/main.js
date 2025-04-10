@@ -2,10 +2,12 @@
  * Script principal pour la gestion du scrollytelling et de l'interaction
  */
 
-import { drawConsommationChart } from "/src/consommationChart.js";
+import { drawConsommationChart } from "./consommationChart.js";
 import { loadAllData } from "./data_loader.js";
+import { drawGlobe } from "./globe.js";
+import * as d3 from 'd3';
 
-  
+
 // Configuration globale
 const config = {
     transitionDuration: 800,
@@ -24,19 +26,20 @@ const state = {
     currentSection: 0,
     data: {},
     charts: [],
-    isDataLoaded: false
+    isDataLoaded: false,
+    globeDrawn: false
 };
 
 // Initialisation
+
 document.addEventListener('DOMContentLoaded', async () => {
     console.log("Initialisation de l'application...");
-    
-    // Afficher un loader pendant le chargement
+
     showLoader();
-    
+
     try {
-        // Chargement des données et affectation à state
         const loadedData = await loadAllData();
+        console.log("Toutes les données chargées avec succès:", loadedData);
         state.data = loadedData;
         state.isDataLoaded = true;
     } catch (error) {
@@ -44,18 +47,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         showErrorMessage("Impossible de charger les données. Veuillez rafraîchir la page ou réessayer plus tard.");
         return;
     }
-    
+
     hideLoader();
     setupScrollTriggers();
-    initVisualizations();
+    await initVisualizations();
     setupStepScrollTimeline();
     updateVisualization(1);
 });
 
-// Afficher un message d'erreur
 function showErrorMessage(message) {
     hideLoader();
-    
+
     const errorDiv = document.createElement('div');
     errorDiv.id = 'error-message';
     errorDiv.innerHTML = `
@@ -65,8 +67,7 @@ function showErrorMessage(message) {
             <button onclick="location.reload()">Réessayer</button>
         </div>
     `;
-    
-    // Style du message d'erreur
+
     errorDiv.style.position = 'fixed';
     errorDiv.style.top = '0';
     errorDiv.style.left = '0';
@@ -77,16 +78,14 @@ function showErrorMessage(message) {
     errorDiv.style.justifyContent = 'center';
     errorDiv.style.alignItems = 'center';
     errorDiv.style.zIndex = '9999';
-    
-    // Style du contenu
+
     const errorContent = errorDiv.querySelector('.error-content');
     errorContent.style.backgroundColor = '#ffffff';
     errorContent.style.padding = '2rem';
     errorContent.style.borderRadius = '8px';
     errorContent.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
     errorContent.style.textAlign = 'center';
-    
-    // Style du bouton
+
     const button = errorDiv.querySelector('button');
     button.style.backgroundColor = config.colors.secondary;
     button.style.color = '#ffffff';
@@ -95,14 +94,11 @@ function showErrorMessage(message) {
     button.style.borderRadius = '4px';
     button.style.marginTop = '1rem';
     button.style.cursor = 'pointer';
-    
-    // Ajout du message d'erreur au body
+
     document.body.appendChild(errorDiv);
 }
 
-// Afficher un loader pendant le chargement des données
 function showLoader() {
-    // Création d'un élément loader
     const loader = document.createElement('div');
     loader.id = 'loader';
     loader.innerHTML = `
@@ -111,8 +107,7 @@ function showLoader() {
             <p>Chargement des données...</p>
         </div>
     `;
-    
-    // Style du loader
+
     loader.style.position = 'fixed';
     loader.style.top = '0';
     loader.style.left = '0';
@@ -123,8 +118,7 @@ function showLoader() {
     loader.style.justifyContent = 'center';
     loader.style.alignItems = 'center';
     loader.style.zIndex = '9999';
-    
-    // Style du spinner
+
     const spinner = loader.querySelector('.spinner');
     spinner.style.width = '50px';
     spinner.style.height = '50px';
@@ -132,8 +126,7 @@ function showLoader() {
     spinner.style.borderTop = '5px solid ' + config.colors.secondary;
     spinner.style.borderRadius = '50%';
     spinner.style.animation = 'spin 1s linear infinite';
-    
-    // Ajouter l'animation CSS
+
     const style = document.createElement('style');
     style.innerHTML = `
         @keyframes spin {
@@ -142,12 +135,10 @@ function showLoader() {
         }
     `;
     document.head.appendChild(style);
-    
-    // Ajout du loader au body
+
     document.body.appendChild(loader);
 }
 
-// Cacher le loader
 function hideLoader() {
     const loader = document.getElementById('loader');
     if (loader) {
@@ -159,43 +150,31 @@ function hideLoader() {
     }
 }
 
-// Configuration du scrollytelling
 function setupScrollTriggers() {
     const sections = document.querySelectorAll('.scroll-section');
-
-    // Options pour l'Intersection Observer
     const options = {
         root: null,
         rootMargin: '0px',
         threshold: 0.5
     };
 
-    // Créer un observer pour chaque section
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const sectionId = entry.target.id;
-                
-                // Vérifie si l'ID suit le format section-N
                 const match = sectionId.match(/section-(\d+)/);
-                if (!match) return;  // Ignore les sections comme l'intro
+                if (!match) return;
 
                 const sectionNumber = parseInt(match[1]);
-
-                // Mise à jour de la section active
                 state.currentSection = sectionNumber;
                 console.log(`Section active: ${sectionNumber}`);
 
-                // Mise à jour de la visualisation
                 updateVisualization(sectionNumber);
-
-                // Animation du contenu
                 animateContent(entry.target);
             }
         });
     }, options);
 
-    // Observer chaque section
     sections.forEach(section => {
         observer.observe(section);
     });
@@ -205,8 +184,8 @@ function setupStepScrollTimeline() {
     const steps = document.querySelectorAll('#section-1 .scroll-page');
     const svg = d3.select("#timeline-svg");
 
-    const height = document.querySelector("#viz-1").clientHeight;
-    const width = document.querySelector("#viz-1").clientWidth;
+    const height = document.querySelector("#viz-1")?.clientHeight || 600;
+    const width = document.querySelector("#viz-1")?.clientWidth || 200;
     svg.attr("viewBox", `0 0 200 ${height}`)
        .attr("preserveAspectRatio", "xMidYMid meet");
 
@@ -221,7 +200,7 @@ function setupStepScrollTimeline() {
         .attr("stroke-width", 4)
         .attr("fill", "none");
 
-    const circles = svg.selectAll("circle")
+    svg.selectAll("circle")
         .data(pathData)
         .enter()
         .append("circle")
@@ -249,12 +228,7 @@ function setupStepScrollTimeline() {
     steps.forEach(step => observer.observe(step));
 }
 
-
-
-
-// Animation du contenu lors du défilement
 function animateContent(section) {
-    // Animer les paragraphes avec un délai
     const paragraphs = section.querySelectorAll('.scroll-content p');
     paragraphs.forEach((p, index) => {
         p.classList.add('slide-in');
@@ -262,8 +236,7 @@ function animateContent(section) {
             p.classList.add('visible');
         }, 100 * index);
     });
-    
-    // Animer le titre
+
     const title = section.querySelector('.scroll-content h2');
     if (title) {
         title.classList.add('fade-in');
@@ -271,78 +244,37 @@ function animateContent(section) {
     }
 }
 
-// Initialisation des visualisations
-function initVisualizations() {
+async function initVisualizations() {
     if (!state.isDataLoaded) {
         console.error("Les données ne sont pas encore chargées");
         return;
     }
-    
+
     console.log("Initialisation des visualisations...");
-    
-    
-    // Récolte mondiale - Carte
-    state.charts[2] = new WorldMapChart('#viz-2');
-    
-    // Évolution du volume de cacao - Graphique linéaire
-    state.charts[3] = new LineChart('#viz-3');
-    
-    // Consommation mondiale et en Suisse - Graphique à barres
-    state.charts[4] = new BarChart('#viz-4', state.data.consommation);
-    
-    // Marché du chocolat - Graphique en anneau
-    state.charts[5] = new DonutChart('#viz-5');
-    
-    // Fabricants de chocolat - Graphique à bulles
-    state.charts[6] = new BubbleChart('#viz-6', state.data.fabricants);
-    
-    // Proportion hommes/femmes - Graphique de répartition
-    state.charts[7] = new GenderChart('#viz-7', state.data.fabricants);
-    
-    // Musées et fréquentation - Graphique à barres
-    state.charts[8] = new BarChart('#viz-8', state.data.musees, 'Fréquentation des musées du chocolat en 2023', 'nom', 'visiteurs');
+
+    // Section 4 – 🌍 Globe interactif + Consommation
+    if (!state.globeDrawn) {
+        import("./globe.js").then(({ drawGlobe }) => {
+            drawGlobe("#viz-3");
+            state.globeDrawn = true;
+        });
+    }
 }
 
-// Mise à jour de la visualisation active
+
 function updateVisualization(sectionNumber) {
-    if (!state.isDataLoaded || !state.charts[sectionNumber]) {
-        console.warn(`Visualisation ${sectionNumber} non disponible`);
-        return;
-    }
-    
     console.log(`Mise à jour de la visualisation ${sectionNumber}`);
-    
-    // Appeler la méthode update de la visualisation active
-    state.charts[sectionNumber].update();
-    
-    // Pour le développement, afficher des données dans la console
-    switch(sectionNumber) {
-        case 1:
-            console.log("Données historiques:", state.data.historique);
-            break;
-        case 4:
-            console.log("Données de consommation:", state.data.consommation);
-            break;
-        case 6:
-            console.log("Données des fabricants:", state.data.fabricants);
-            break;
-        case 8:
-            console.log("Données des musées:", state.data.musees);
-            break;
-    }
 }
 
-// Gestion du redimensionnement de fenêtre
 window.addEventListener('resize', debounce(() => {
-    if (state.currentSection && state.charts[state.currentSection]) {
+    if (state.currentSection && state.charts[state.currentSection]?.resize) {
         state.charts[state.currentSection].resize();
     }
 }, 250));
 
-// Fonction utilitaire de debounce pour optimiser les événements fréquents
 function debounce(func, wait) {
     let timeout;
-    return function() {
+    return function () {
         const context = this;
         const args = arguments;
         clearTimeout(timeout);
@@ -351,5 +283,3 @@ function debounce(func, wait) {
         }, wait);
     };
 }
-
-drawConsommationChart("#viz-4", "/data/comparaison_ventes_exportations_chocolat.csv");
