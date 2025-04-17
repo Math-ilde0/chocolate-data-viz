@@ -1,0 +1,140 @@
+#viz-8 h1 {
+    font-size: 2.5rem;
+    margin-bottom: 8rem;
+  }
+  
+  #viz-8 .musees-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10vw;
+    flex-wrap: wrap;
+  }
+  
+  #viz-8 .musee {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #viz-8 .musee:hover {
+    transform: scale(1.05);
+  }
+  
+  #viz-8 .museum-icon {
+    width: 150px;
+    height: auto;
+  }
+  
+  #viz-8 .logo {
+    position: absolute;
+    top: -45px;
+    width: auto;
+    height: 38px;
+    object-fit: contain;
+  }
+  
+  /* Logo Cailler sur le musée */
+  #viz-8 .musee[data-nom="Cailler"] .logo {
+    top: -75px;
+    height: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+  }
+  
+  /* Classement par taille */
+  #viz-8 .musee[data-nom="Cailler"] .contenu-musee {
+    transform: scale(1.2);
+  }
+  #viz-8 .musee[data-nom="Lindt"] .contenu-musee {
+    transform: scale(1.4);
+    z-index: 2;
+  }
+  #viz-8 .musee[data-nom="Camille Bloch"] .contenu-musee {
+    transform: scale(0.7);
+  }
+  
+  /* Conteneur SVG/logo */
+  #viz-8 .contenu-musee {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Conteneur bonhommes */
+  #viz-8 .pastilles {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    pointer-events: none;
+    overflow: visible;
+  }
+  
+  /* Bonhommes animés */
+  #viz-8 .bonhomme {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    opacity: 0.9;
+    animation: monteeVersMusee 4s ease-in forwards;
+  }
+  
+  @keyframes monteeVersMusee {
+    0% {
+      transform: translateY(70px);
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Infobulle générique */
+  #viz-8 .info-bulle {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 8px 16px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
+    min-width: 300px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transform: translateX(-50%) scale(1) !important;
+  }
+  
+  /* Position des infobulles ajustée selon musée */
+  #viz-8 .musee[data-nom="Lindt"] .info-bulle {
+    bottom: -180px;
+  }
+  #viz-8 .musee[data-nom="Cailler"] .info-bulle {
+    bottom: -150px;
+  }
+  #viz-8 .musee[data-nom="Camille Bloch"] .info-bulle {
+    bottom: -90px;
+  }
+  
+  #viz-8 .musee:hover .info-bulle {
+    opacity: 1;
+  }
+  

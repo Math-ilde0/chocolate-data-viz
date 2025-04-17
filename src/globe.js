@@ -1,4 +1,3 @@
-import * as d3 from 'd3';
 
 const GEO_JSON_PATH = "public/data/globeCoordinates.json";
 const DATA_CSV_PATH = "public/data/production_cacao_mondiale_2023_2024.csv";
@@ -311,17 +310,20 @@ function drawConsumptionLegend(violetPalette) {
 
 
 function configureZoom(svg, initialScale, projection) {
-    svg.call(d3.zoom().on("zoom", () => {
-        if (d3.event.transform.k > ZOOM_SENSITIVITY) {
-            projection.scale(initialScale * d3.event.transform.k);
-            const path = d3.geoPath().projection(projection);
-            svg.selectAll("path").attr("d", path);
-            svg.selectAll("circle").attr("r", projection.scale());
-        } else {
-            d3.event.transform.k = ZOOM_SENSITIVITY;
-        }
-    }));
+  svg.call(d3.zoom().on("zoom", (event) => {
+    const transform = event.transform;
+
+    if (transform.k > ZOOM_SENSITIVITY) {
+      projection.scale(initialScale * transform.k);
+      const path = d3.geoPath().projection(projection);
+      svg.selectAll("path").attr("d", path);
+      svg.selectAll("circle").attr("r", projection.scale());
+    } else {
+      transform.k = ZOOM_SENSITIVITY;
+    }
+  }));
 }
+
 
 function resizeGlobe(projection, svg, pathGen) {
     GLOBE_WIDTH = GLOBE_CONTAINER.node().getBoundingClientRect().width;

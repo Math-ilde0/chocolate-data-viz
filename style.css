@@ -1,3 +1,5 @@
+@import url('src/styles/viz8.css');
+
 :root {
     --primary-color: #5c3d2e;
     --secondary-color: #b85c38;
@@ -523,5 +525,28 @@ svg {
     display: none;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     z-index: 9999;
+  }
+  
+  #viz-8 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* prend toute la hauteur de l'écran */
+    padding: 2rem 1rem;
+  }
+  
+  /* Musées */
+  #section-8 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  #section-8 .scroll-content {
+    max-width: 800px;
+    margin-bottom: 2rem;
   }
   

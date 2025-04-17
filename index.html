@@ -20,10 +20,7 @@
         
         <!-- Section 1: Histoire du chocolat avec 5 dates clés -->
 <section class="scroll-section full-timeline" id="section-1">
-    <!-- Timeline verticale -->
-    <svg id="timeline-svg"></svg>
 
-    a
 </section>
 
         
@@ -110,24 +107,58 @@
                 <!-- Contenu supplémentaire ici -->
             </div>
         </section>
+<!-- Section 8 - Affluence des musées du chocolat -->
+<section id="section-8" class="scroll-section">
+    <div class="scroll-content">
+      <h2>Les musées du chocolat en Suisse</h2>
+      <p>Chaque année, des centaines de milliers de visiteurs découvrent les musées de grandes marques suisses comme Lindt, Cailler ou Camille Bloch. Voici leur affluence en 2022 :</p>
+    </div>
+  
+    <div id="viz-8" class="viz">
+      <div class="musees-container">
+  
+        <!-- Musée Cailler -->
+        <div class="musee" data-nom="Cailler" data-visiteurs="437000">
+          <div class="contenu-musee">
+            <img src="public/assets/musee/museum.svg" alt="Musée" class="museum-icon">
+            <img src="public/assets/musee/Cailler.png" alt="Logo Cailler" class="logo logo-cailler">
+            <div class="pastilles"></div>
+          </div>
+          <div class="info-bulle"></div>
+        </div>
+  
+        <!-- Musée Lindt -->
+        <div class="musee" data-nom="Lindt" data-visiteurs="500000">
+          <div class="contenu-musee">
+            <img src="public/assets/musee/museum.svg" alt="Musée" class="museum-icon">
+            <img src="public/assets/musee/Lindt.png" alt="Logo Lindt" class="logo logo-lindt">
+            <div class="pastilles"></div>
+          </div>
+          <div class="info-bulle"></div>
+        </div>
+  
+        <!-- Musée Camille Bloch -->
+        <div class="musee" data-nom="Camille Bloch" data-visiteurs="120000">
+          <div class="contenu-musee">
+            <img src="public/assets/musee/museum.svg" alt="Musée" class="museum-icon">
+            <img src="public/assets/musee/Camille.png" alt="Logo Camille Bloch" class="logo logo-camille">
+            <div class="pastilles"></div>
+          </div>
+          <div class="info-bulle"></div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
 
-        <!-- Section 8: Musées du chocolat et fréquentation -->
-        <section class="scroll-section" id="section-8">
-            <div class="sticky-graphic">
-                <div id="viz-8" class="viz-container"></div>
-            </div>
-            <div class="scroll-content">
-                <h2>Les Musées du Chocolat</h2>
-                <p>Le chocolat est également un attrait touristique majeur en Suisse, avec trois musées principaux attirant des visiteurs du monde entier.</p>
-                <p>Comparez la fréquentation du Lindt Home of Chocolate, de la Maison Cailler et du Centre Visiteurs Camille Bloch.</p>
-                <!-- Contenu supplémentaire ici -->
-            </div>
-        </section>
+        
     </main>
 
     <footer>
         <p>Projet HEIG-VD de visualisation de données | 2025</p>
     </footer>
+    
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 
     <script type="module" src="/src/data_loader.js"></script>
 <script type="module" src="/src/chart.js"></script>

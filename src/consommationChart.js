@@ -1,4 +1,4 @@
-import * as d3 from "d3";
+
 
 export function drawConsommationChart(containerId, csvPath) {
   console.log("Drawing chart for", containerId, "with data from", csvPath);

@@ -5,7 +5,8 @@
 import { drawConsommationChart } from "./consommationChart.js";
 import { loadAllData } from "./data_loader.js";
 import { drawGlobe } from "./globe.js";
-import * as d3 from 'd3';
+import { initMuseesVisualisation } from './musee.js';
+
 
 
 // Configuration globale
@@ -259,6 +260,12 @@ async function initVisualizations() {
             state.globeDrawn = true;
         });
     }
+    const museeElements = document.querySelectorAll('#section-8 .musee');
+if (museeElements.length > 0) {
+    initMuseesVisualisation();
+}
+
+      
 }
 
 

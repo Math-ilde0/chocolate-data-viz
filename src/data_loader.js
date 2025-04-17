@@ -1,4 +1,4 @@
-import * as d3 from "d3";
+
 
 /**
  * Module de chargement des données pour le projet de visualisation du chocolat
