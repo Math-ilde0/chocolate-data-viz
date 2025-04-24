@@ -6,7 +6,7 @@ import { drawConsommationChart } from "./consommationChart.js";
 import { loadAllData } from "./data_loader.js";
 import { drawGlobe } from "./globe.js";
 import { initMuseesVisualisation } from './musee.js';
-import { setupChocolateProgressBar } from './animations.js';
+import { setupChocolateProgressBar,  setupEtapeTimeline, setupIntroToTimelineTransition, setupScrollRevealTimeline } from './animations.js';
 
 
 
@@ -57,6 +57,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupStepScrollTimeline();
     updateVisualization(1);
     setupChocolateProgressBar();
+    setupEtapeTimeline();
+    setupIntroToTimelineTransition();
+    setupScrollRevealTimeline();
 
 });
 

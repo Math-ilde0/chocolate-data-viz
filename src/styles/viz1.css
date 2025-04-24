@@ -1,55 +1,83 @@
-/* VISUALISATION 1 — Histoire du chocolat */
-
 #viz-1 {
-    padding: 4rem 2rem;
-    background-color: #fef9f4;
-  }
-  
-  #viz-1 .etape {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 4rem;
-    max-width: 1000px;
-    margin: 4rem auto;
-    flex-wrap: wrap;
-  }
-  
-  #viz-1 .etape img {
-    max-width: 300px;
-    height: auto;
-    flex: 1 1 300px;
-  }
-  
-  #viz-1 .etape p {
-    flex: 1 1 400px;
-    font-size: 1.2em;
-    line-height: 1.6;
-    margin: 0;
-    font-family: 'Patrick Hand', cursive;
-  }
-  
-  #viz-1 .etape p strong {
-    display: block;
-    font-size: 1.4em;
-    font-weight: bold;
-    color: #5e2c04;
-    margin-bottom: 10px;
-  }
-  
-  /* Alternance gauche/droite */
-  #viz-1 .etape.gauche {
-    flex-direction: row;
-    text-align: left;
-  }
-  
-  #viz-1 .etape.droite {
-    flex-direction: row-reverse;
-    text-align: right;
-  }
-  
-  /* Corrige le layout global qui met tout en ligne */
-#viz-1.scroll-section {
-    display: block !important;
-  }
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+  will-change: opacity, transform;
+  pointer-events: none;
+  margin-top: -10vh;
+  z-index: 1;
+  height: 100vh; /* prend toute la hauteur */
+  overflow: hidden;
+  position: relative;
+}
+
+#viz-1.visible {
+  opacity: 1;
+  pointer-events: auto;
+ 
+  transform: translateY(0) scale(1);
+}
+
+#intro {
+  position: relative;
+  z-index: 2;
+}
+ 
+.timeline-slides {
+  position: relative;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+#viz-1 .etape {
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+  scroll-snap-align: start;
+}
+
+#viz-1 .etape.active {
+  opacity: 1;
+  transform: translateY(0);
+  z-index: 1;
+}
+
+
+#viz-1 .etape img {
+  max-width: 300px;
+  height: auto;
+  flex: 1 1 300px;
+}
+
+#viz-1 .etape p {
+  flex: 1 1 400px;
+  font-size: 1.2em;
+  line-height: 1.6;
+  font-family: 'Patrick Hand', cursive;
+}
+
+#viz-1 .etape p strong {
+  display: block;
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #5e2c04;
+  margin-bottom: 10px;
+}
+
+#viz-1 .etape.gauche {
+  flex-direction: row;
+  text-align: left;
+}
+
+#viz-1 .etape.droite {
+  flex-direction: row-reverse;
+  text-align: right;
+}
