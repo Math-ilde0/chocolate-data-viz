@@ -120,7 +120,7 @@ const x1 = d3.scaleBand()
             .attr("y", y(d.value))
             .attr("width", x1.bandwidth())
             .attr("height", y(0) - y(d.value))
-            .attr("fill", isSuisse ? "#b88d5b" : "#5C3D2E"); // fond plus clair pour blond
+            .attr("fill", isSuisse ? "#b67a55" : "#5e3d38"); // fond plus clair pour blond #5e3d38
         
           // Motif par-dessus
           group.append("rect")
