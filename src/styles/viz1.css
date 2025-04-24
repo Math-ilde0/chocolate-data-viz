@@ -1,0 +1,55 @@
+/* VISUALISATION 1 — Histoire du chocolat */
+
+#viz-1 {
+    padding: 4rem 2rem;
+    background-color: #fef9f4;
+  }
+  
+  #viz-1 .etape {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1000px;
+    margin: 4rem auto;
+    flex-wrap: wrap;
+  }
+  
+  #viz-1 .etape img {
+    max-width: 300px;
+    height: auto;
+    flex: 1 1 300px;
+  }
+  
+  #viz-1 .etape p {
+    flex: 1 1 400px;
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin: 0;
+    font-family: 'Patrick Hand', cursive;
+  }
+  
+  #viz-1 .etape p strong {
+    display: block;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #5e2c04;
+    margin-bottom: 10px;
+  }
+  
+  /* Alternance gauche/droite */
+  #viz-1 .etape.gauche {
+    flex-direction: row;
+    text-align: left;
+  }
+  
+  #viz-1 .etape.droite {
+    flex-direction: row-reverse;
+    text-align: right;
+  }
+  
+  /* Corrige le layout global qui met tout en ligne */
+#viz-1.scroll-section {
+    display: block !important;
+  }
