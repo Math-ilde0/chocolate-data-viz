@@ -7,6 +7,7 @@ import { loadAllData } from "./data_loader.js";
 import { drawGlobe } from "./globe.js";
 import { initMuseesVisualisation } from './musee.js';
 import { setupChocolateProgressBar,  setupEtapeTimeline, setupIntroToTimelineTransition, setupScrollRevealTimeline } from './animations.js';
+import { initFeves } from './feve.js';
 
 
 
@@ -60,6 +61,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupEtapeTimeline();
     setupIntroToTimelineTransition();
     setupScrollRevealTimeline();
+    initFeves();
 
 });
 

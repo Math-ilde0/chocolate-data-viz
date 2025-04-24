@@ -2,6 +2,8 @@
 @import url('src/styles/viz1.css');
 @import url('src/styles/viz3.css');
 @import url('src/styles/animations.css');
+@import url('src/styles/viz2.css');
+
 
 :root {
     --primary-color: #5c3d2e;
@@ -80,6 +82,7 @@ header p {
     flex-wrap: wrap;
     position: relative;
     z-index: 1;
+    overflow: visible;
 }
 
 /* Sections suivantes */
