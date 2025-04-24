@@ -1,5 +1,7 @@
 @import url('src/styles/viz8.css');
 @import url('src/styles/viz1.css');
+@import url('src/styles/viz3.css');
+@import url('src/styles/animations.css');
 
 :root {
     --primary-color: #5c3d2e;
@@ -17,6 +19,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+html {
+    overflow: hidden; /* désactive scroll général */
+  }
 
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -24,7 +29,20 @@ body {
     color: var(--dark-text);
     background-color: var(--light-bg);
     overflow-x: hidden;
+    scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE/Edge */
 }
+
+.scroll-pages-container {
+    overflow-y: scroll;      /* on remet le scroll ici */
+    height: 100vh;
+    scrollbar-width: none;   /* Firefox */
+  }
+  
+  .scroll-pages-container::-webkit-scrollbar {
+    display: none;           /* Chrome, Safari */
+  }
+  
 
 /* Header styles */
 header {
@@ -62,51 +80,6 @@ header p {
     flex-wrap: wrap;
     position: relative;
     z-index: 1;
-}
-
-
-
-.scroll-pages-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    z-index: 2;
-    background-color: var(--light-bg);
-}
-
-.scroll-page {
-    height: 100vh;
-    scroll-snap-align: start;
-    padding: 4rem 10%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    opacity: 0.4;
-    transition: opacity 0.6s ease;
-}
-
-.scroll-page.visible {
-    opacity: 1;
-}
-
-.scroll-page h2 {
-    font-size: 2rem;
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-}
-
-.scroll-page p {
-    font-size: 1.1rem;
-    line-height: 1.5;
-}
-
-.scroll-page img {
-    width: 100%;
-    max-width: 400px;
-    margin-top: 1rem;
-    border-radius: 8px;
 }
 
 /* Sections suivantes */
@@ -282,34 +255,7 @@ footer {
     fill: var(--accent-color);
 }
 
-.pie-slice {
-    transition: opacity 0.3s ease;
-}
 
-.pie-slice:hover {
-    opacity: 0.8;
-}
-
-/* Animations */
-.fade-in {
-    opacity: 0;
-    transition: opacity 1s ease;
-}
-
-.fade-in.visible {
-    opacity: 1;
-}
-
-.slide-in {
-    transform: translateY(50px);
-    opacity: 0;
-    transition: transform 0.8s ease, opacity 0.8s ease;
-}
-
-.slide-in.visible {
-    transform: translateY(0);
-    opacity: 1;
-}
 
 /* Intro screen */
 .intro-screen {
@@ -363,42 +309,6 @@ svg {
     display: block;
 }
 
-/* === Globe D3.js === */
-#viz-3 svg {
-    width: 100%;
-    height: 100%;
-}
-
-#viz-3 .countries {
-    stroke: #ccc;
-    stroke-width: 0.4;
-}
-
-#viz-3 .legend-bar {
-    margin: 10px 0;
-    font-size: 12px;
-    color: var(--dark-text);
-    text-align: center;
-}
-
-#viz-3 .legend-title {
-    font-size: 12px;
-    font-weight: bold;
-    fill: var(--dark-text);
-}
-
-/* Container pour échelles côte à côte */
-#viz-3 .color-scales-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    padding: 10px 0;
-}
-
-#viz-3 .color-scale {
-    width: 45%;
-    height: auto;
-}
 
 /* === Tooltip Globe === */
 #globe-tooltip {

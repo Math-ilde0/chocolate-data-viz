@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+  <div class="scroll-pages-container">
+  <div id="choco-progress-container">
+    <img id="choco-drop" src="public/assets/goutte.png" alt="Goutte de chocolat">
+  </div>
+  
     <main id="scrollytelling">
         <section class="scroll-section intro-screen" id="intro">
             <div class="intro-content">
@@ -18,8 +22,7 @@
             </div>
         </section>
         
-        <!-- Section 1: Histoire du chocolat avec 5 dates clés -->
-<!-- SECTION 1 : Histoire du chocolat -->
+        <!-- Section 1: Histoire du chocolat avec 4 dates clés -->
 <section class="scroll-section full-timeline" id="viz-1">
 
   <section class="etape gauche">
@@ -93,18 +96,6 @@
             </div>
         </section>
 
-        <!-- Section 5: Marché du chocolat -->
-        <section class="scroll-section" id="section-5">
-            <div class="sticky-graphic">
-                <div id="viz-5" class="viz-container"></div>
-            </div>
-            <div class="scroll-content">
-                <h2>Le Marché du Chocolat</h2>
-                <p>L'industrie du chocolat représente un marché mondial considérable, avec la Suisse jouant un rôle majeur malgré sa petite taille.</p>
-                <p>Découvrez les tendances économiques, les parts de marché et la valeur générée par cette industrie gourmande.</p>
-                <!-- Contenu supplémentaire ici -->
-            </div>
-        </section>
 
         <!-- Section 6: Les fabricants de chocolat -->
         <section class="scroll-section" id="section-6">
@@ -188,6 +179,6 @@
 <script type="module" src="/src/chart.js"></script>
 <script type="module" src="/src/main.js"></script>
 
-
+</div>
 </body>
 </html>
