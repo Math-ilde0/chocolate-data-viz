@@ -72,3 +72,11 @@ export function setupChocolateProgressBar() {
     observer.observe(target);
   }
   
+  document.addEventListener('mousemove', (e) => {
+    const cursor = document.getElementById('circularcursor');
+    if (cursor) {
+      cursor.style.left = `${e.pageX - 10}px`; // -10 pour bien centrer le curseur
+      cursor.style.top = `${e.pageY - 10}px`;
+    }
+  });
+  

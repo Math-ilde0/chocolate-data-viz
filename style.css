@@ -32,13 +32,15 @@ body {
     background-color: var(--light-bg);
     overflow-x: hidden;
     scrollbar-width: none;        /* Firefox */
-  -ms-overflow-style: none;     /* IE/Edge */
+    -ms-overflow-style: none;     /* IE/Edge */
+    cursor: none ;
 }
 
 .scroll-pages-container {
-    overflow-y: scroll;      /* on remet le scroll ici */
+    overflow-y: scroll;      
     height: 100vh;
-    scrollbar-width: none;   /* Firefox */
+    scrollbar-width: none; 
+    background: transparent; 
   }
   
   .scroll-pages-container::-webkit-scrollbar {

@@ -17,4 +17,32 @@
     transform-origin: top center;
   }
   
-/* Premiere transistion */
+/* Animation d'entrée pour la page intro */
+
+@keyframes enter-animation {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .intro-content {
+    animation: enter-animation 1.2s ease-out both;
+  }
+}
+
+#circularcursor {
+  background-color: transparent;
+  border: 1px solid black;    
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 10000; /* <<<<<<<<<<<< Plus haut que tout le reste */
+  pointer-events: none; /* (important pour éviter de bloquer les clics) */
+}

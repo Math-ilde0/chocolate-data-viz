@@ -4,7 +4,6 @@
 
 import { drawConsommationChart } from "./consommationChart.js";
 import { loadAllData } from "./data_loader.js";
-import { drawGlobe } from "./globe.js";
 import { initMuseesVisualisation } from './musee.js';
 import { setupChocolateProgressBar,  setupEtapeTimeline, setupIntroToTimelineTransition, setupScrollRevealTimeline } from './animations.js';
 import { initFeves } from './feve.js';
