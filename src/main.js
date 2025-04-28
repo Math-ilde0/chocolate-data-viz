@@ -7,9 +7,8 @@ import { loadAllData } from "./data_loader.js";
 import { initMuseesVisualisation } from './musee.js';
 import { setupChocolateProgressBar,  setupEtapeTimeline, setupIntroToTimelineTransition, setupScrollRevealTimeline } from './animations.js';
 import { initFeves } from './feve.js';
-
-
-
+import { initCarousel } from './fabricants_marques.js';
+import { initGenreIndustrie } from './genre_industrie.js';
 
 // Configuration globale
 const config = {
@@ -61,7 +60,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupIntroToTimelineTransition();
     setupScrollRevealTimeline();
     initFeves();
-
+    initCarousel();
+    initGenreIndustrie();
 });
 
 function showErrorMessage(message) {

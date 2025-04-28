@@ -1,0 +1,75 @@
+/* ---------- base ---------- */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+body{background:#fff7ef;color:#2d2424}
+.wrapper{max-width:950px;margin:2rem auto;padding:0 1rem;text-align:center}
+h1{font-size:1.9rem;color:#5c3d2e;margin-bottom:2rem}
+.source{font-size:.85rem;color:#5b5b5b;margin-top:1.5rem}
+
+/* ---------- graphique ---------- */
+#chart{
+  display:flex;
+  gap:2.4rem;
+  justify-content:center;
+  align-items:flex-end;
+  flex-wrap:wrap;
+  padding-bottom:1rem;
+}
+
+.year-group{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:.4rem;
+  min-width:120px;
+}
+
+/* container des 2 pictos */
+.pair{display:flex;gap:1.5rem;align-items:flex-end}
+
+/* colonne d'une personne */
+.person-col {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+  gap:0.2rem;
+  position: relative;
+}
+
+/* picto dimensionné dynamiquement */
+.icon-box{
+  width:80px;
+  height:260px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+}
+.pic{
+  width:80px;
+  object-fit:contain;
+  object-position:bottom;
+  transition:opacity .3s;
+}
+.pic:hover{opacity:.85}
+
+/* lignes valeurs + pourcentage au-dessus */
+.value, .pct {
+  font-size:.8rem;
+  text-align:center;
+  width:80px;
+  line-height:1.1rem;
+}
+.value{color:#2d2424;font-weight:500}
+.pct{color:#8c735b;font-weight:700}
+
+/* noms + année */
+.sex-row{display:flex;gap:1.5rem;justify-content:center}
+.sex-label{width:80px;text-align:center;font-size:.78rem;font-weight:700;color:#5c3d2e}
+.year-label{font-size:.9rem;color:#7a6d5b;margin-top:.3rem}
+
+.stats-container {
+  position: absolute;
+  bottom: 100%;
+  width: 100%;
+  transform: translateY(40px); /* Adjust this value to control how close the numbers are to the image */
+}

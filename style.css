@@ -3,7 +3,8 @@
 @import url('src/styles/viz3.css');
 @import url('src/styles/animations.css');
 @import url('src/styles/viz2.css');
-
+@import url('src/styles/viz6.css');
+@import url('src/styles/viz7.css');
 
 :root {
     --primary-color: #5c3d2e;
@@ -109,7 +110,20 @@ header p {
     overflow: hidden;
     padding: 20px;
 }
+#viz-6 .sticky-graphic,
+#viz-6 .scroll-content {
+    width: 100%;
+    float: none;
+    height: auto;
+}
 
+#viz-6 .sticky-graphic {
+    background: transparent; /* Enlève le fond gris inutile */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* pas "sticky" ici */
+}
 .scroll-content {
     width: 50%;
     float: right;
@@ -118,6 +132,8 @@ header p {
     flex-direction: column;
     justify-content: center;
 }
+
+
 
 .scroll-content h2 {
     font-size: 2.2rem;
@@ -401,7 +417,24 @@ svg {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     z-index: 9999;
   }
-  
+  #section-7 .sticky-graphic,
+#section-7 .scroll-content {
+    width: 100%;
+    float: none;
+    height: auto;
+}
+
+#section-7 .sticky-graphic {
+    background: transparent; /* enlève le fond gris */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* pas sticky */
+}
+
+#section-7 .scroll-content {
+    display: none; /* ❌ car tu n’as plus besoin de texte sur la droite */
+}
   #viz-8 {
     display: flex;
     flex-direction: column;

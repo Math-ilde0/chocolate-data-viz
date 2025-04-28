@@ -30,25 +30,25 @@
             <div class="etape gauche">
               <img src="public/assets/dates/1502.png" alt="Christophe Colomb">
               <p><strong>1502 – Christophe Colomb découvre le cacao</strong><br>
-                Lors d’un voyage vers les Amériques, Christophe Colomb entre en contact avec les fèves de cacao. Il les rapporte en Europe, sans vraiment comprendre leur valeur. C’est pourtant le point de départ d’une grande aventure : l’introduction du cacao sur le continent européen.</p>
+                Lors d'un voyage vers les Amériques, Christophe Colomb entre en contact avec les fèves de cacao. Il les rapporte en Europe, sans vraiment comprendre leur valeur. C'est pourtant le point de départ d'une grande aventure : l'introduction du cacao sur le continent européen.</p>
             </div>
         
             <div class="etape droite">
               <img src="public/assets/dates/1528.png" alt="Espagne">
               <p><strong>1528 – Introduction du cacao en Espagne</strong><br>
-                Le conquistador Hernán Cortés ramène le cacao à la cour d’Espagne. Très vite, il est transformé en boisson chaude, sucrée et épicée, appréciée des nobles. Le cacao devient un produit de luxe et commence à se diffuser dans les cours royales d’Europe.</p>
+                Le conquistador Hernán Cortés ramène le cacao à la cour d'Espagne. Très vite, il est transformé en boisson chaude, sucrée et épicée, appréciée des nobles. Le cacao devient un produit de luxe et commence à se diffuser dans les cours royales d'Europe.</p>
             </div>
         
             <div class="etape gauche">
               <img src="public/assets/dates/1679.png" alt="Bruxelles">
               <p><strong>1679 – Un maire suisse découvre le chocolat à Bruxelles</strong><br>
-                Lors d’un voyage à Bruxelles, un maire suisse découvre le chocolat et en ramène l’idée dans son pays. Cette rencontre marque le début d’une longue relation entre la Suisse et le chocolat, qui deviendra plus tard une référence mondiale.</p>
+                Lors d'un voyage à Bruxelles, un maire suisse découvre le chocolat et en ramène l'idée dans son pays. Cette rencontre marque le début d'une longue relation entre la Suisse et le chocolat, qui deviendra plus tard une référence mondiale.</p>
             </div>
         
             <div class="etape droite">
               <img src="public/assets/dates/1818.png" alt="Cailler">
-              <p><strong>1818 – Début de l’industrialisation du chocolat en Suisse</strong><br>
-                François-Louis Cailler fonde la première chocolaterie suisse. Le chocolat n’est plus réservé aux élites : il devient un produit de consommation courante grâce à la production industrielle. Une nouvelle ère commence pour le chocolat et pour la Suisse.</p>
+              <p><strong>1818 – Début de l'industrialisation du chocolat en Suisse</strong><br>
+                François-Louis Cailler fonde la première chocolaterie suisse. Le chocolat n'est plus réservé aux élites : il devient un produit de consommation courante grâce à la production industrielle. Une nouvelle ère commence pour le chocolat et pour la Suisse.</p>
             </div>
         
           </div>
@@ -56,18 +56,18 @@
         
         
 
-        <!-- Section 2: Évolution de l’importation de cacao en Suisse -->
+        <!-- Section 2: Évolution de l'importation de cacao en Suisse -->
         <section class="scroll-section" id="viz-2">
           <div class="scroll-content">
-            <h2>Évolution de l’importation de cacao en Suisse</h2>
+            <h2>Évolution de l'importation de cacao en Suisse</h2>
             <p>
-              Cette visualisation illustre la croissance continue de l’importation de fèves de cacao par la Suisse au fil des années. 
+              Cette visualisation illustre la croissance continue de l'importation de fèves de cacao par la Suisse au fil des années. 
               Chaque sac représente une année, et leur taille reflète la quantité importée.
             </p>
           </div>
         
           <div id="graph-container">
-            <div class="bar" data-tooltip="En l’an 2000, la Suisse a importé 21 989 tonnes de cacao — soit 44 éléphants adultes.">
+            <div class="bar" data-tooltip="En l'an 2000, la Suisse a importé 21 989 tonnes de cacao — soit 44 éléphants adultes.">
               <img src="public/assets/sac-feve-cacao.svg" alt="sac cacao" width="80">
               <div class="year">2000</div>
             </div>
@@ -87,7 +87,7 @@
               <div class="year">2015</div>
             </div>
         
-            <div class="bar" data-tooltip="En 2020, 48 670 tonnes de cacao ont été englouties — l’équivalent de 97 baleines bleues !">
+            <div class="bar" data-tooltip="En 2020, 48 670 tonnes de cacao ont été englouties — l'équivalent de 97 baleines bleues !">
               <img src="public/assets/sac-feve-cacao.svg" alt="sac cacao" width="135">
               <div class="year">2020</div>
             </div>
@@ -133,30 +133,63 @@
 
 
         <!-- Section 6: Les fabricants de chocolat -->
-        <section class="scroll-section" id="section-6">
-            <div class="sticky-graphic">
-                <div id="viz-6" class="viz-container"></div>
-            </div>
-            <div class="scroll-content">
-                <h2>Les Fabricants de Chocolat Suisse</h2>
-                <p>La Suisse abrite certaines des marques de chocolat les plus prestigieuses au monde, de Lindt à Cailler en passant par Toblerone.</p>
-                <p>Cette visualisation présente les principaux fabricants, leur histoire et leur impact sur l'industrie chocolatière suisse.</p>
-                <!-- Contenu supplémentaire ici -->
-            </div>
-        </section>
+  <section class="scroll-section" id="viz-6">
+   
+  <div class="sticky-graphic">
+      <div id="viz-6" class="viz-container">
+          
+          <!-- Ton carousel ici -->
+          <div class="brand-carousel">
+              <h1>Les Grandes Marques de Chocolat Suisse</h1>
+
+              <div class="carousel-track">
+                  <button class="carousel-arrow left">❮</button>
+                  <div class="carousel"></div>
+                  <button class="carousel-arrow right">❯</button>
+              </div>
+
+              <div class="brand-info">
+                  <h3 class="brand-name"></h3>
+                  <p class="creation-date"></p>
+                  <p class="anecdote"></p>
+              </div>
+          </div>
+
+      </div>
+  </div>
+  <div class="scroll-content">
+      <h2>Les Fabricants de Chocolat Suisse</h2>
+      <p>La Suisse abrite certaines des marques de chocolat les plus prestigieuses au monde, de Lindt à Cailler en passant par Toblerone.</p>
+      <p>Cette visualisation présente les principaux fabricants, leur histoire et leur impact sur l'industrie chocolatière suisse.</p>
+  </div>
+  <script type="module" src="/src/fabricants_marques.js"></script>
+</section>
+
 
         <!-- Section 7: Proportion hommes/femmes dans l'industrie -->
-        <section class="scroll-section" id="section-7">
-            <div class="sticky-graphic">
-                <div id="viz-7" class="viz-container"></div>
+       <!-- Section 7: Proportion hommes/femmes dans l'industrie -->
+       <section class="scroll-section" id="section-7">
+        <div class="sticky-graphic">
+            <div id="viz-7" class="viz-container">
+                <h2>Employé(e)s au sein de l’industrie chocolatière suisse</h2>
+                <section id="chart"></section>
             </div>
-            <div class="scroll-content">
-                <h2>Genre et Industrie du Chocolat</h2>
-                <p>L'industrie du chocolat emploie des milliers de personnes en Suisse. Comment se répartit la représentation des genres dans ce secteur?</p>
-                <p>Explorez l'évolution de la proportion hommes-femmes dans l'industrie chocolatière et les tendances actuelles.</p>
-                <!-- Contenu supplémentaire ici -->
-            </div>
-        </section>
+        </div>
+        <div class="scroll-content">
+            <h2>Genre et Industrie du Chocolat</h2>
+            <p>L'industrie du chocolat emploie des milliers de personnes en Suisse. Comment se répartit la représentation des genres dans ce secteur?</p>
+            <p>Explorez l'évolution de la proportion hommes-femmes dans l'industrie chocolatière et les tendances actuelles.</p>
+        </div>
+            <!-- 💥 On garde ton appel D3.js juste après -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="src/genre_industrie.js"></script>
+    </section>
+    
+
+
+
+
+
 <!-- Section 8 - Affluence des musées du chocolat -->
 <section id="section-8" class="scroll-section">
     <div class="scroll-content">
