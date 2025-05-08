@@ -46,3 +46,7 @@
   z-index: 10000; /* <<<<<<<<<<<< Plus haut que tout le reste */
   pointer-events: none; /* (important pour éviter de bloquer les clics) */
 }
+
+
+
+

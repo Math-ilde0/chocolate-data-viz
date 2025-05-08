@@ -1,83 +1,157 @@
 #viz-1 {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
-  will-change: opacity, transform;
-  pointer-events: none;
-  margin-top: -10vh;
+  width: 100vw;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  position: relative;
   z-index: 1;
-  height: 100vh; /* prend toute la hauteur */
-  overflow: hidden;
-  position: relative;
 }
 
-#viz-1.visible {
-  opacity: 1;
-  pointer-events: auto;
- 
-  transform: translateY(0) scale(1);
-}
-
-#intro {
-  position: relative;
-  z-index: 2;
-}
- 
 .timeline-slides {
   position: relative;
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-}
-
-#viz-1 .etape {
-  height: 100vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 4rem;
-  flex-wrap: wrap;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 1s ease;
-  scroll-snap-align: start;
-}
-
-#viz-1 .etape.active {
-  opacity: 1;
-  transform: translateY(0);
-  z-index: 1;
-}
-
-
-#viz-1 .etape img {
-  max-width: 300px;
+  width: 100vw;
+  min-height: 100vh;
   height: auto;
-  flex: 1 1 300px;
+  margin: 0 auto;
+  padding: 0;
 }
 
-#viz-1 .etape p {
-  flex: 1 1 400px;
-  font-size: 1.2em;
-  line-height: 1.6;
-  font-family: 'Patrick Hand', cursive;
+.timeline-slides::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 8px;
+  height: 100%;
+  background: #5e2c04; /* BRUN chocolat */
+  transform: translateX(-50%);
+  z-index: 1;
+  border-radius: 4px;
 }
 
-#viz-1 .etape p strong {
-  display: block;
-  font-size: 1.4em;
-  font-weight: bold;
-  color: #5e2c04;
-  margin-bottom: 10px;
-}
-
-#viz-1 .etape.gauche {
+.etape {
+  display: flex;
   flex-direction: row;
+  align-items: center;
+  min-height: 40vh;
+  width: 100vw;
+  position: relative;
+  margin: 40px 0;
+  z-index: 2;
+}
+
+.etape-col {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-col {
+  max-width: 500px;
+}
+
+.empty-col {
+  /* colonne vide pour alterner gauche/droite */
+}
+
+.timeline-col {
+  flex: 0 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 3;
+  min-width: 60px;
+  min-height: 60px;
+}
+
+.timeline-dot {
+  width: 48px;
+  height: 32px;
+  background: #5e2c04; /* BRUN chocolat */
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; /* forme ovale */
+  position: relative;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-dot::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-style: solid;
+}
+
+.etape.gauche .timeline-dot::after {
+  right: -12px;
+  border-width: 8px 0 8px 18px;
+  border-color: transparent transparent transparent #5e2c04;
+}
+
+.etape.droite .timeline-dot::after {
+  left: -12px;
+  border-width: 8px 18px 8px 0;
+  border-color: transparent #5e2c04 transparent transparent;
+}
+
+.content {
+  background: transparent;
+  text-align: left;
+  padding: 10px 20px;
+}
+
+.etape.gauche .content {
+  text-align: right;
+}
+
+.etape.droite .content {
   text-align: left;
 }
 
-#viz-1 .etape.droite {
-  flex-direction: row-reverse;
-  text-align: right;
+.content img {
+  max-width: 220px;
+  height: auto;
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content h3 {
+  font-size: 1.3em;
+  color: #5e2c04;
+  margin: 10px 0 10px 0;
+  font-weight: bold;
+  text-align: inherit;
+}
+
+.content p {
+  font-size: 1.05em;
+  color: #3a2a1a;
+  margin: 0;
+  line-height: 1.5;
+  font-family: 'Patrick Hand', cursive, Arial, sans-serif;
+}
+
+@media (max-width: 900px) {
+  .etape {
+    flex-direction: column;
+    min-height: 60vh;
+  }
+  .timeline-col {
+    order: 2;
+  }
+  .content-col, .empty-col {
+    order: 1;
+    max-width: 90vw;
+  }
+  .content {
+    text-align: center !important;
+  }
 }

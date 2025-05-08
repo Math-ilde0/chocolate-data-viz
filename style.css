@@ -33,15 +33,13 @@ body {
     background-color: var(--light-bg);
     overflow-x: hidden;
     scrollbar-width: none;        /* Firefox */
-    -ms-overflow-style: none;     /* IE/Edge */
-    cursor: none ;
+  -ms-overflow-style: none;     /* IE/Edge */
 }
 
 .scroll-pages-container {
-    overflow-y: scroll;      
+    overflow-y: scroll;      /* on remet le scroll ici */
     height: 100vh;
-    scrollbar-width: none; 
-    background: transparent; 
+    scrollbar-width: none;   /* Firefox */
   }
   
   .scroll-pages-container::-webkit-scrollbar {
@@ -458,3 +456,6 @@ svg {
     margin-bottom: 2rem;
   }
   
+
+
+
