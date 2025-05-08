@@ -1,42 +1,63 @@
-/* Container principal pleine largeur et centré */
-#viz-2 {
+/* Section 2: Évolution de l'importation de cacao - CSS COMPLET MIS À JOUR */
+
+/* Annuler la structure standard 50/50 pour cette section spécifique */
+#section-2.scroll-section,
+#viz-2.scroll-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 8rem 2rem;
+  padding: 2rem;
   background-color: transparent;
 }
 
-
-
-/* Titre et texte centrés */
+/* Ajuster le contenu pour qu'il prenne toute la largeur */
+#section-2 .scroll-content,
 #viz-2 .scroll-content {
+  width: 100%;
   max-width: 800px;
+  float: none; /* Annuler le float du CSS global */
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 6rem !important; /* AUGMENTÉ: espace sous le texte */
+  padding: 0; /* Réinitialiser le padding */
+  opacity: 1 !important; /* Forcer l'affichage du contenu */
+  transform: translateY(0) !important; /* Annuler toute transformation */
 }
 
+/* S'assurer que le titre est visible */
+#section-2 .scroll-content h2,
 #viz-2 .scroll-content h2 {
   font-size: 2.5rem;
   color: #b85c38;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem;
+  opacity: 1;
+  display: block;
+  visibility: visible;
+  transform: none;
 }
 
+/* S'assurer que le texte est visible */
+#section-2 .scroll-content p,
 #viz-2 .scroll-content p {
   font-size: 1.1rem;
   line-height: 1.6;
   color: #2d2424;
+  opacity: 1;
+  visibility: visible;
 }
 
 /* Container des sacs de fèves */
 #graph-container {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-end;
   gap: 2rem;
-  max-width: 100%;
+  max-width: 1200px;
+  margin-top: 2rem; /* NOUVEAU: espace en haut du conteneur */
+  position: relative;
+  padding-top: 2rem; /* NOUVEAU: espace supplémentaire au-dessus des sacs */
 }
 
 /* Chaque sac + date */
@@ -45,6 +66,9 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+  cursor: pointer;
+  padding: 0.5rem; /* NOUVEAU: plus d'espace autour de chaque élément */
+  margin: 0.5rem; /* NOUVEAU: marge entre éléments */
 }
 
 #graph-container .bar img {
@@ -63,11 +87,11 @@
   font-family: 'Georgia', serif;
 }
 
-/* Infobulle */
+/* Infobulle - Modifications de position */
 #graph-container .bar::after {
   content: attr(data-tooltip);
   position: absolute;
-  bottom: 110%;
+  bottom: 130%; /* MODIFIÉ: augmenté de 110% à 130% */
   left: 50%;
   transform: translateX(-50%);
   background: #fff3e0;
@@ -90,14 +114,14 @@
 #graph-container .bar::before {
   content: '';
   position: absolute;
-  bottom: 100%;
+  bottom: 120%; /* MODIFIÉ: ajusté pour la nouvelle position de l'infobulle */
   left: 50%;
   transform: translateX(-50%);
   width: 0;
   height: 0;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  border-bottom: 10px solid #5e2c04;
+  border-top: 10px solid #5e2c04;
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 99;
@@ -106,7 +130,30 @@
 #graph-container .bar:hover::after,
 #graph-container .bar:hover::before {
   opacity: 1;
+  visibility: visible;
 }
 
+/* Forcer l'animation du contenu */
+#section-2.active .scroll-content > *,
+#viz-2.active .scroll-content > * {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
 
-
+/* Ajustements pour mobile */
+@media screen and (max-width: 768px) {
+  #section-2 .scroll-content,
+  #viz-2 .scroll-content {
+    margin-bottom: 8rem !important; /* NOUVEAU: encore plus d'espace sur mobile */
+  }
+  
+  #graph-container {
+    padding-top: 4rem; /* NOUVEAU: plus d'espace sur mobile */
+  }
+  
+  #graph-container .bar::after {
+    bottom: 135%; /* NOUVEAU: position ajustée sur mobile */
+    min-width: 160px; /* NOUVEAU: largeur réduite sur mobile */
+  }
+}
