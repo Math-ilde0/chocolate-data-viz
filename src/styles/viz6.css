@@ -26,7 +26,7 @@
     font-size: 4rem;
     font-weight: 900;
     cursor: pointer;
-    color: #000;
+    color: #5c3d2e;
     transition: transform .2s ease;
     z-index: 10;
   }
@@ -37,14 +37,14 @@
   
   .carousel-arrow.left {
     position: absolute;
-    left: 18rem;
+    left: 12rem;
     top: 50%;
     transform: translateY(-50%);
   }
   
   .carousel-arrow.right {
     position: absolute;
-    right: 18rem;
+    right: 12rem;
     top: 50%;
     transform: translateY(-50%);
   }
@@ -69,14 +69,13 @@
     height: 300px;
   }
   
-  /* Tous les logos */
   .logo-item {
     position: absolute;
     width: 120px;
     height: 120px;
     opacity: 0;
     filter: grayscale(100%) brightness(85%);
-    transition: all 0.5s ease;
+    transition: transform 0.5s ease, opacity 0.5s ease;
     background: #f5f5f5;
     border-radius: 16px;
     overflow: hidden;
@@ -96,7 +95,6 @@
     transform: translateX(-50%);
     left: 50%;
     z-index: 3;
-    transition: all 0.5s ease, transform 0.5s ease;
   }
   
   /* Logo précédent à gauche */
@@ -108,7 +106,6 @@
     transform: translateX(-180%);
     left: 50%;
     z-index: 2;
-    transition: all 0.5s ease, transform 0.5s ease;
   }
   
   /* Logo suivant à droite */
@@ -120,7 +117,6 @@
     transform: translateX(80%);
     left: 50%;
     z-index: 2;
-    transition: all 0.5s ease, transform 0.5s ease;
   }
   
   /* Images dans les logos */

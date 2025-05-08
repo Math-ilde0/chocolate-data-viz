@@ -109,27 +109,34 @@ header p {
     overflow: hidden;
     padding: 20px;
 }
-#viz-6 .sticky-graphic,
-#viz-6 .scroll-content {
-    width: 100%;
-    float: none;
-    height: auto;
+#viz-6 {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 2rem;
 }
 
 #viz-6 .sticky-graphic {
-    background: transparent; /* Enlève le fond gris inutile */
+    width: 100%;
+    height: auto;
+    background: transparent; /* enlève le fond gris inutile */
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative; /* pas "sticky" ici */
+    margin-bottom: 2rem;
 }
-.scroll-content {
-    width: 50%;
-    float: right;
-    padding: 5vh 5% 10vh;
+
+#viz-6 .scroll-content {
+    width: 100%;
+    max-width: 800px;
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
 }
 
 

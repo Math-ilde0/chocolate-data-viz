@@ -24,7 +24,7 @@ h1{font-size:1.9rem;color:#5c3d2e;margin-bottom:2rem}
 }
 
 /* container des 2 pictos */
-.pair{display:flex;gap:1.5rem;align-items:flex-end}
+.pair{display:flex;gap:0.3rem;align-items:flex-end}
 
 /* colonne d'une personne */
 .person-col {
@@ -34,6 +34,12 @@ h1{font-size:1.9rem;color:#5c3d2e;margin-bottom:2rem}
   justify-content:flex-end;
   gap:0.2rem;
   position: relative;
+}
+.bar-column {
+  width: 28px;
+  background-color: #5c3d2e;
+  border-radius: 4px 4px 0 0;
+  margin-top: 0.4rem;
 }
 
 /* picto dimensionné dynamiquement */
@@ -68,8 +74,11 @@ h1{font-size:1.9rem;color:#5c3d2e;margin-bottom:2rem}
 .year-label{font-size:.9rem;color:#7a6d5b;margin-top:.3rem}
 
 .stats-container {
-  position: absolute;
-  bottom: 100%;
-  width: 100%;
-  transform: translateY(40px); /* Adjust this value to control how close the numbers are to the image */
+  position: relative;
+  bottom: auto;
+  transform: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.3rem;
 }
