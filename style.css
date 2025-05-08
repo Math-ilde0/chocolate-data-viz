@@ -5,6 +5,7 @@
 @import url('src/styles/viz2.css');
 @import url('src/styles/viz6.css');
 @import url('src/styles/viz7.css');
+@import url('src/styles/viz4.css');
 
 :root {
     --primary-color: #5c3d2e;
@@ -317,17 +318,6 @@ footer {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(10px); }
 }
-
-/* Diagnostic styles - remove after debugging */
-#viz-4 {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    min-height: 300px;
-}
-
-svg {
-    display: block;
-}
-
 
 /* === Tooltip Globe === */
 #globe-tooltip {

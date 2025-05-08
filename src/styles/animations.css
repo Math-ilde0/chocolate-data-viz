@@ -50,3 +50,74 @@
 
 
 
+/* Styles pour la section de consommation */
+#section-4 {
+  position: relative;
+  overflow: hidden;
+}
+
+#section-4::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: linear-gradient(to bottom, rgba(92, 61, 46, 0.4) 0%, transparent 100%);
+  z-index: 10;
+}
+
+.choco-title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.choco-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #5c3d2e, #b85c38);
+  transition: width 1.5s ease;
+}
+
+.choco-title.visible::after {
+  width: 100%;
+}
+
+.reveal-text {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.chocolate-fact-box {
+  background: rgba(224, 164, 88, 0.15);
+  border-left: 5px solid #b85c38;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 0 8px 8px 0;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.chocolate-fact-box.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Animation pour les particules de chocolat */
+.chocolate-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}

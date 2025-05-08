@@ -1,0 +1,64 @@
+/* Styles pour étendre le graphique de consommation sur toute la largeur */
+
+/* Section 4 - Comparaison des ventes de chocolat */
+#section-4 .sticky-graphic,
+#section-4 .scroll-content {
+    width: 100%;
+    float: none;
+    height: auto;
+}
+
+#section-4 .sticky-graphic {
+    background: transparent; /* Enlève le fond gris */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Pas sticky */
+    padding: 2rem 1rem;
+}
+
+#section-4 .scroll-content {
+    display: none; /* On masque le contenu texte pour avoir juste le graphique */
+}
+
+/* Modifications du conteneur du graphique */
+#viz-4 {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: auto;
+    min-height: 550px;
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* S'assurer que le graphique est centré sur la page */
+#viz-4 svg {
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+}
+
+/* Titre de la section */
+#section-4 h2 {
+    font-size: 2.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    width: 100%;
+}
+
+/* Responsive pour les écrans plus petits */
+@media screen and (max-width: 768px) {
+    #viz-4 {
+        width: 95%;
+        padding: 15px;
+    }
+    
+    #section-4 h2 {
+        font-size: 1.8rem;
+    }
+}

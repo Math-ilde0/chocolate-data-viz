@@ -9,6 +9,7 @@ import { setupChocolateProgressBar,  setupEtapeTimeline, setupIntroToTimelineTra
 import { initFeves } from './feve.js';
 import { initCarousel } from './fabricants_marques.js';
 import { initGenreIndustrie } from './genre_industrie.js';
+import { setupConsommationChart3D } from './Transformation3d.js';
 
 // Configuration globale
 const config = {
@@ -62,6 +63,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     initFeves();
     initCarousel();
     initGenreIndustrie();
+
+     // Ajouter l'effet 3D pour la section de consommation
+     setupConsommationChart3D();
+    
+     // Ajouter des paillettes de chocolat qui tombent lors du scroll
+     setupChocolateParticles();
 });
 
 function showErrorMessage(message) {
@@ -251,6 +258,114 @@ function animateContent(section) {
         title.classList.add('fade-in');
         title.classList.add('visible');
     }
+}
+
+// Fonction pour ajouter des particules de "paillettes de chocolat" pendant le scroll
+function setupChocolateParticles() {
+    const container = document.createElement('div');
+    container.className = 'chocolate-particles-container';
+    container.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 100;
+        overflow: hidden;
+    `;
+    document.body.appendChild(container);
+    
+    // Variable pour suivre le dernier défilement
+    let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    let scrollTimeout;
+    
+    // Fonction pour créer une particule
+    function createParticle() {
+        const particle = document.createElement('div');
+        particle.className = 'chocolate-particle';
+        
+        // Taille et opacité aléatoires
+        const size = 3 + Math.random() * 5;
+        const opacity = 0.3 + Math.random() * 0.5;
+        
+        // Couleur aléatoire de chocolat
+        const colors = ['#5c3d2e', '#8b5a2b', '#b08968', '#cd853f', '#a0522d'];
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        
+        // Position aléatoire en haut de l'écran
+        const leftPos = Math.random() * 100;
+        
+        // Style CSS
+        particle.style.cssText = `
+            position: absolute;
+            width: ${size}px;
+            height: ${size}px;
+            background-color: ${color};
+            border-radius: 50%;
+            top: -10px;
+            left: ${leftPos}%;
+            opacity: ${opacity};
+            pointer-events: none;
+            transform: translateY(0);
+            animation: fallAndFade ${4 + Math.random() * 6}s linear forwards;
+        `;
+        
+        container.appendChild(particle);
+        
+        // Supprimer la particule après l'animation
+        setTimeout(() => {
+            particle.remove();
+        }, 10000);
+    }
+    
+    // Ajouter les styles d'animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fallAndFade {
+            0% { 
+                transform: translateY(0) rotate(0deg); 
+                opacity: 0;
+            }
+            10% {
+                opacity: var(--opacity, 0.5);
+            }
+            85% {
+                opacity: var(--opacity, 0.5);
+            }
+            100% { 
+                transform: translateY(120vh) rotate(360deg); 
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Événement de défilement
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollDelta = Math.abs(scrollTop - lastScrollTop);
+        
+        // Créer des particules en fonction de la vitesse de défilement
+        if (scrollDelta > 15) {
+            // Plus le défilement est rapide, plus on crée de particules
+            const particleCount = Math.min(5, Math.floor(scrollDelta / 30));
+            
+            for (let i = 0; i < particleCount; i++) {
+                createParticle();
+            }
+        }
+        
+        lastScrollTop = scrollTop;
+        
+        // Réinitialiser le timeout pour faire tomber quelques particules même en défilement lent
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            if (Math.random() > 0.7) {
+                createParticle();
+            }
+        }, 200);
+    });
 }
 
 async function initVisualizations() {
