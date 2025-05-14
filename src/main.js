@@ -10,6 +10,9 @@ import { initFeves } from './feve.js';
 import { initCarousel } from './fabricants_marques.js';
 import { initGenreIndustrie } from './genre_industrie.js';
 import { setupConsommationChart3D } from './Transformation3d.js';
+import { setupTimelineSlideIn } from './viz1_animation.js';
+import { setupTimelineSlideIn } from './viz1_animation.js'; 
+setupTimelineSlideIn();
 
 // Configuration globale
 const config = {

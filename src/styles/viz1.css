@@ -155,3 +155,25 @@
     text-align: center !important;
   }
 }
+
+
+/* Animation d'entrée des étapes */
+.etape {
+  opacity: 0;
+  transition: 
+    opacity 1.2s cubic-bezier(.77,0,.18,1),
+    transform 1.2s cubic-bezier(.77,0,.18,1);
+}
+
+.etape.gauche {
+  transform: translateX(-120px);
+}
+.etape.droite {
+  transform: translateX(120px);
+}
+
+.etape.active {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 10;
+}

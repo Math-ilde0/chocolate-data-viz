@@ -1,5 +1,18 @@
 /* Section 2: Évolution de l'importation de cacao - CSS COMPLET MIS À JOUR */
 
+#section-2 .scroll-content > *:not(.viz2-animate-title),
+#viz-2 .scroll-content > *:not(.viz2-animate-title) {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+#section-2.active .scroll-content > *:not(.viz2-animate-title),
+#viz-2.active .scroll-content > *:not(.viz2-animate-title) {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
 /* Annuler la structure standard 50/50 pour cette section spécifique */
 #section-2.scroll-section,
 #viz-2.scroll-section {
@@ -24,11 +37,11 @@
   transform: translateY(0) !important; /* Annuler toute transformation */
 }
 
-/* S'assurer que le titre est visible */
-#section-2 .scroll-content h2,
-#viz-2 .scroll-content h2 {
+/* S'assurer que le titre est visible (sauf si animé) */
+#section-2 .scroll-content h2:not(.viz2-animate-title),
+#viz-2 .scroll-content h2:not(.viz2-animate-title) {
   font-size: 2.5rem;
-  color: #b85c38;
+  color: #5e2c04;
   margin-bottom: 1.5rem;
   opacity: 1;
   display: block;
@@ -36,15 +49,17 @@
   transform: none;
 }
 
-/* S'assurer que le texte est visible */
-#section-2 .scroll-content p,
-#viz-2 .scroll-content p {
+/* S'assurer que le texte est visible (sauf si animé) */
+#section-2 .scroll-content p:not(.viz2-animate-title),
+#viz-2 .scroll-content p:not(.viz2-animate-title) {
   font-size: 1.1rem;
   line-height: 1.6;
   color: #2d2424;
   opacity: 1;
   visibility: visible;
 }
+
+/* ... (le reste de ton fichier ne change pas) ... */
 
 /* Container des sacs de fèves */
 #graph-container {
@@ -156,4 +171,31 @@
     bottom: 135%; /* NOUVEAU: position ajustée sur mobile */
     min-width: 160px; /* NOUVEAU: largeur réduite sur mobile */
   }
+}
+
+/* Animation titre et sous-titre */
+.viz2-animate-title {
+  opacity: 0;
+  transform: scale(1.25);
+  transition: 
+    opacity 1s cubic-bezier(.77,0,.18,1),
+    transform 1s cubic-bezier(.77,0,.18,1);
+  display: block;
+}
+.viz2-animate-title.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Animation des sacs */
+#graph-container .bar {
+  opacity: 0;
+  transform: scaleY(0.2);
+  transition: 
+    opacity 0.7s cubic-bezier(.77,0,.18,1),
+    transform 0.7s cubic-bezier(.77,0,.18,1);
+}
+#graph-container .bar.visible {
+  opacity: 1;
+  transform: scaleY(1);
 }
