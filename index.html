@@ -17,10 +17,14 @@
     <main id="scrollytelling">
         <section class="scroll-section intro-screen" id="intro">
             <div class="intro-content">
-                <h1>L'Histoire du Chocolat Suisse</h1>
-                <h2>Une exploration visuelle de l'histoire, de la production et de la consommation du chocolat suisse</h2>
-                <p class="team">Réalisé par : Samuel Teixeira, Estelle Rossier & Mathilde Jaccard </p>
-                <p class="scroll-hint">▼ Faites défiler pour commencer l'exploration ▼</p>
+              <h1>Aux Origines du Chocolat Suisse</h1>
+              <h2>Plongez dans un univers où se rencontrent les parfums subtils du cacao, les traditions suisses transmises de génération en génération et l'excellence d'un savoir-faire artisanal reconnu dans le monde entier</h2>
+              <p class="team">Un projet de : Samuel Teixeira, Estelle Rossier & Mathilde Jaccard</p>
+              <p class="scroll-hint">
+                Faites défiler pour commencer l'exploration
+                <span class="drip"></span>
+                <span class="drip-2"></span>
+              </p>
             </div>
         </section>
         
@@ -148,12 +152,14 @@
 
 
   <!-- Section 3: -->
-<section class="scroll-section centered-globe-section" id="section-3">
+  <section class="scroll-section centered-globe-section" id="section-3">
     <div class="full-screen-graphic">
-      
-  
       <div id="viz-3" class="viz-container globe-only">
-        <h2>Consommation et Production de Cacao</h2>
+        <h2>De la Fève à la Renommée Mondiale</h2>
+        <p class="globe-description">Explorez la géographie du chocolat : les pays en brun foncé sont les grands 
+        producteurs de cacao, tandis que les teintes violettes indiquent les plus grands consommateurs. 
+        Découvrez comment la Suisse, sans produire une seule fève, est devenue l'épicentre du chocolat de qualité.</p>
+        
         <!-- Le globe sera injecté ici par D3 -->
         <div class="legends-container">
           <div id="color-scale" class="legend-box"></div>
@@ -161,26 +167,26 @@
         </div>
       </div>
     </div>
-  </section>
+</section>
   
   
 
        <!-- Section 4: Consommation mondiale et en Suisse -->
-<section class="scroll-section" id="section-4">
+       <section class="scroll-section" id="section-4">
   <div class="sticky-graphic">
-      <div id="viz-4" class="viz-container">
-          <!-- Le contenu sera généré dynamiquement -->
-      </div>
-  </div>
-  <div class="scroll-content">
-      <h2 class="choco-title">Consommation de Chocolat</h2>
-      <p class="reveal-text">Les Suisses sont parmi les plus grands consommateurs de chocolat au monde, avec une moyenne de plus de 10 kg par personne et par an.</p>
-      <p class="reveal-text">Comment se compare cette consommation avec celle d'autres pays? Cette visualisation offre une perspective comparative et historique.</p>
-      <div class="chocolate-fact-box">
-          <h3>Le saviez-vous?</h3>
-          <p>La Suisse exporte plus de 70% de sa production de chocolat vers l'étranger, tout en restant l'un des plus grands consommateurs au monde.</p>
-      </div>
-  </div>
+    <div id="viz-4" class="viz-container">
+        <!-- Le contenu sera généré dynamiquement -->
+    </div>
+</div>
+<div class="scroll-content">
+    <h2 class="choco-title">La Dualité Sucrée de l'Industrie</h2>
+    <p class="reveal-text">Avec une consommation annuelle de 11,3 kg par habitant, la Suisse figure constamment parmi les plus grands amateurs de chocolat au monde. Mais sa véritable prouesse réside ailleurs...</p>
+    <p class="reveal-text">Le paradoxe chocolaté suisse : bien que ce petit pays consomme d'importantes quantités de chocolat, il en exporte encore davantage ! Observez comment la production suisse se partage entre le marché local et l'exportation mondiale.</p>
+    <div class="chocolate-fact-box">
+        <h3>Le saviez-vous?</h3>
+        <p>Pour chaque tablette consommée en Suisse, plus de deux sont exportées vers l'étranger. En 2023, les exportations ont dépassé les 150 000 tonnes, générant plus de 1,7 milliard de francs suisses de revenus.</p>
+    </div>
+</div>
 </section>
 
 
@@ -245,8 +251,8 @@
 <!-- Section 8 - Affluence des musées du chocolat -->
 <section id="section-8" class="scroll-section">
     <div class="scroll-content">
-      <h2>Les musées du chocolat en Suisse</h2>
-      <p>Chaque année, des centaines de milliers de visiteurs découvrent les musées de grandes marques suisses comme Lindt, Cailler ou Camille Bloch. Voici leur affluence en 2022 :</p>
+      <h2>Temples du Chocolat Suisse</h2>
+<p class="viz8-intro">Chaque année, plus d'un million de gourmands franchissent les portes des musées des grandes maisons chocolatières. Découvrez ces cathédrales du cacao qui célèbrent l'héritage chocolaté suisse à travers des expériences immersives et sensorielles.</p>
     </div>
   
     <div id="viz-8" class="viz">
@@ -292,12 +298,21 @@
     <footer>
         <p>Projet HEIG-VD de visualisation de données | 2025</p>
     </footer>
-    
+    <svg class="svg-filters" xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <defs>
+        <filter id="gooey">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="gooey" />
+          <feComposite in="SourceGraphic" in2="gooey" operator="atop"/>
+        </filter>
+      </defs>
+    </svg>
     <script src="https://d3js.org/d3.v7.min.js"></script>
 
     <script type="module" src="/src/data_loader.js"></script>
 <script type="module" src="/src/chart.js"></script>
 <script type="module" src="src/main.js"></script>
 </div>
+
 </body>
 </html>

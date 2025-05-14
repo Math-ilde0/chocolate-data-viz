@@ -5,7 +5,7 @@
 import { drawConsommationChart } from "./consommationChart.js";
 import { loadAllData } from "./data_loader.js";
 import { initMuseesVisualisation } from './musee.js';
-import { setupChocolateProgressBar,  setupEtapeTimeline, setupIntroToTimelineTransition, setupScrollRevealTimeline } from './animations.js';
+import { setupChocolateProgressBar,  setupEtapeTimeline, setupIntroToTimelineTransition, setupScrollRevealTimeline, setupGlobeToChartTransition } from './animations.js';
 import { initFeves } from './feve.js';
 import { initCarousel } from './fabricants_marques.js';
 import { initGenreIndustrie } from './genre_industrie.js';
@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupEtapeTimeline();
     setupIntroToTimelineTransition();
     setupScrollRevealTimeline();
+    setupGlobeToChartTransition();
     initFeves();
     initCarousel();
     initGenreIndustrie();
