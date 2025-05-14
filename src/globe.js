@@ -21,7 +21,7 @@ export async function drawGlobe(containerId) {
     const GLOBE_WIDTH = GLOBE_CONTAINER.node().getBoundingClientRect().width;
     const GLOBE_HEIGHT = GLOBE_CONTAINER.node().getBoundingClientRect().height;
     const GLOBE_RADIUS = GLOBE_HEIGHT / 2.8; // Agrandi
-    const GLOBE_CENTER = [GLOBE_WIDTH / 2, GLOBE_HEIGHT / 2];
+    const GLOBE_CENTER = [GLOBE_WIDTH / 2, GLOBE_HEIGHT / 2.8];
   
     const geoJson = await d3.json(GEO_JSON_PATH);
     const productionData = await d3.csv(DATA_CSV_PATH);
@@ -307,22 +307,6 @@ function drawConsumptionLegend(violetPalette) {
         .call(axis);
 }
 
-
-
-function configureZoom(svg, initialScale, projection) {
-  svg.call(d3.zoom().on("zoom", (event) => {
-    const transform = event.transform;
-
-    if (transform.k > ZOOM_SENSITIVITY) {
-      projection.scale(initialScale * transform.k);
-      const path = d3.geoPath().projection(projection);
-      svg.selectAll("path").attr("d", path);
-      svg.selectAll("circle").attr("r", projection.scale());
-    } else {
-      transform.k = ZOOM_SENSITIVITY;
-    }
-  }));
-}
 
 
 function resizeGlobe(projection, svg, pathGen) {

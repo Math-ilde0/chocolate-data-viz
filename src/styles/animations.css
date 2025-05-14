@@ -239,3 +239,27 @@
   z-index: -9999;
 }
 
+/* Ajout d'espace entre les sections 7 et 8 */
+
+/* Ajoute une grande marge en bas de la section 7 */
+#section-7 {
+  margin-bottom: 250px; /* Vous pouvez ajuster cette valeur selon vos besoins */
+}
+
+/* Optionnellement, si vous voulez aussi ajouter de l'espace en haut de la section 8 */
+#section-8 {
+  padding-top: 50px; /* Espace supplémentaire au début de la section 8 */
+}
+
+/* Pour améliorer la transition visuelle */
+#section-7::after {
+  content: "";
+  display: block;
+  height: 50px; /* Hauteur de l'élément de transition */
+  width: 100%;
+  background: linear-gradient(to bottom, var(--light-bg), transparent);
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  pointer-events: none; /* Ne bloque pas les interactions */
+}

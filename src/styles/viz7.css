@@ -5,6 +5,9 @@ body{background:#fff7ef;color:#2d2424}
 h1{font-size:1.9rem;color:#5c3d2e;margin-bottom:2rem}
 .source{font-size:.85rem;color:#5b5b5b;margin-top:1.5rem}
 
+#viz-7 {
+  background-color: white; /* Ajout du fond blanc */
+}
 /* ---------- graphique ---------- */
 #chart{
   display:flex;
