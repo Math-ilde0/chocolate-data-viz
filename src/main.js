@@ -11,8 +11,6 @@ import { initCarousel } from './fabricants_marques.js';
 import { initGenreIndustrie } from './genre_industrie.js';
 import { setupConsommationChart3D } from './Transformation3d.js';
 import { setupTimelineSlideIn } from './viz1_animation.js';
-import { setupTimelineSlideIn } from './viz1_animation.js'; 
-setupTimelineSlideIn();
 
 // Configuration globale
 const config = {
@@ -68,6 +66,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     initFeves();
     initCarousel();
     initGenreIndustrie();
+
+setupTimelineSlideIn();
 
      // Ajouter l'effet 3D pour la section de consommation
      setupConsommationChart3D();

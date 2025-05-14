@@ -148,9 +148,6 @@ d3.timer(() => {
     svg.selectAll("path").attr("d", pathGenerator);
   }
 });
-
-    // Zoom
-    configureZoom(svg, GLOBE_RADIUS, geoProjection);
   
     // Légendes
     drawLegend(svg, colorScale);
