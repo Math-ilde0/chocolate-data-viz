@@ -1,6 +1,47 @@
+/* Désactiver le pseudo-élément ::after pour les titres de la viz-8 */
+#section-8 h2::after,
+#viz-8 h2::after {
+    display: none !important;
+    content: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
+}
+
+/* S'assurer que le titre soit visible */
+#section-8 h2,
+#viz-8 h2 {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    color: #5c3d2e;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    font-size: 2.2rem;
+} 
+/* Désactiver tout effet indésirable pour les paragraphes dans la viz-8 */
+#section-8 p::after,
+#viz-8 p::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* S'assurer que les paragraphes soient visibles */
+#section-8 p,
+#viz-8 p {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    color: #2d2424;
+    margin-bottom: 0.2rem;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    transform: none !important;
+}
 #viz-8 h1 {
     font-size: 2.5rem;
-    margin-bottom: 8rem;
+    margin-bottom: 1rem;
   }
   
   #viz-8 .musees-container {
@@ -9,6 +50,9 @@
     align-items: flex-end;
     gap: 10vw;
     flex-wrap: wrap;
+
+    position: relative; /* Ajouter cette ligne */
+    top: -30px; /* Ajouter cette ligne */
   }
   
   #viz-8 .musee {

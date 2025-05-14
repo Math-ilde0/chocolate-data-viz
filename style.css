@@ -23,9 +23,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 html {
     overflow: hidden; /* désactive scroll général */
-  }
+}
 
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -34,19 +35,18 @@ body {
     background-color: var(--light-bg);
     overflow-x: hidden;
     scrollbar-width: none;        /* Firefox */
-  -ms-overflow-style: none;     /* IE/Edge */
+    -ms-overflow-style: none;     /* IE/Edge */
 }
 
 .scroll-pages-container {
     overflow-y: scroll;      /* on remet le scroll ici */
     height: 100vh;
     scrollbar-width: none;   /* Firefox */
-  }
+}
   
-  .scroll-pages-container::-webkit-scrollbar {
+.scroll-pages-container::-webkit-scrollbar {
     display: none;           /* Chrome, Safari */
-  }
-  
+}
 
 /* Header styles */
 header {
@@ -103,12 +103,12 @@ header p {
 .viz-container {
     width: 90%;
     height: 80%;
-    background-color: var(--white);
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     padding: 20px;
 }
+
 #viz-6 {
     min-height: 100vh;
     display: flex;
@@ -138,8 +138,6 @@ header p {
     justify-content: center;
     text-align: center;
 }
-
-
 
 .scroll-content h2 {
     font-size: 2.2rem;
@@ -282,8 +280,6 @@ footer {
     fill: var(--accent-color);
 }
 
-
-
 /* Intro screen */
 .intro-screen {
     display: flex;
@@ -304,7 +300,7 @@ footer {
 }
 
 .intro-content h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 300;
     margin-bottom: 1.5rem;
 }
@@ -371,36 +367,36 @@ footer {
     font-size: 2rem;
     color: var(--secondary-color);
     margin-bottom: 1.5rem; /* ← Réduit ici aussi */
-  }
+}
 
 .viz-container.globe-only {
     width: 100%;
-    height: 900px; /* ← Avant c'était probablement 500px */
-    background-color: var(--white);
+    height: 1100px; /* Augmenté à 1100px pour un globe plus grand */
+    background-color: transparent; /* Fond transparent au lieu de blanc */
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: none; /* Suppression de l'ombre portée */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: start;
-}
+    padding-top: 30px; /* Ajoute un peu d'espace en haut */
+} 
+
 /* Légendes production + consommation */
 .legends-container {
-    margin-bottom: 0.5rem; /* ← Réduit l’espace sous les légendes */
+    margin-bottom: 0.5rem; /* ← Réduit l'espace sous les légendes */
     display: flex;
     flex-direction: row;
     gap: 2rem;
     justify-content: center;
     flex-wrap: wrap;
-  }
+}
   
-  
-  .legend-box {
+.legend-box {
     max-width: 360px;
     width: 100%;
-  }
+}
   
-
 .globe-tooltip {
     position: absolute;
     background: #fff;
@@ -411,8 +407,9 @@ footer {
     display: none;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     z-index: 9999;
-  }
-  #section-7 .sticky-graphic,
+}
+
+#section-7 .sticky-graphic,
 #section-7 .scroll-content {
     width: 100%;
     float: none;
@@ -428,31 +425,184 @@ footer {
 }
 
 #section-7 .scroll-content {
-    display: none; /* ❌ car tu n’as plus besoin de texte sur la droite */
+    display: none; /* ❌ car tu n'as plus besoin de texte sur la droite */
 }
-  #viz-8 {
+
+#viz-8 {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh; /* prend toute la hauteur de l'écran */
     padding: 2rem 1rem;
-  }
+}
   
-  /* Musées */
-  #section-8 {
+/* Musées */
+#section-8 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-  }
+}
   
-  #section-8 .scroll-content {
+#section-8 .scroll-content {
     max-width: 800px;
     margin-bottom: 2rem;
-  }
-  
+}
 
+/* Globe Description pour viz-3 */
+.globe-description {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #5c3d2e;
+    text-align: center;
+}
 
+/* Style pour le paragraphe d'introduction section 8 */
+.viz8-intro {
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #5c3d2e;
+    text-align: center;
+    font-style: italic;
+}
 
+/* Désactiver le pseudo-élément ::after pour les titres de la viz-8 */
+#section-8 h2::after,
+#viz-8 h2::after {
+    display: none !important;
+    content: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
+}
+
+/* S'assurer que le titre soit visible */
+#section-8 h2,
+#viz-8 h2 {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    color: #5c3d2e;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 2.2rem;
+}
+
+/* Désactiver tout effet indésirable pour les paragraphes dans la viz-8 */
+#section-8 p::after,
+#viz-8 p::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* S'assurer que les paragraphes soient visibles */
+#section-8 p,
+#viz-8 p {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    color: #2d2424;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    transform: none !important;
+}
+
+/* Animation d'entrée plus fluide pour intro */
+@keyframes fade-slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Forcer l'affichage du titre principal et du contenu d'intro (1ère tentative) */
+.intro-content > * {
+    animation: fade-slide-up 0.8s ease-out forwards;
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+}
+
+.intro-content h1 { animation-delay: 0.1s; }
+.intro-content h2 { animation-delay: 0.4s; }
+.intro-content .team { animation-delay: 0.7s; }
+.intro-content .scroll-hint { animation-delay: 1.2s; }
+
+/* Force affichage du titre h1 - solution d'urgence */
+.intro-screen .intro-content h1 {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    transform: none !important;
+    font-size: 4.5rem !important;
+    margin: 0 0 1.5rem 0 !important;
+    padding: 0 !important;
+    color: white !important;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3) !important;
+    z-index: 999 !important;
+    pointer-events: auto !important;
+    height: auto !important;
+    width: auto !important;
+    overflow: visible !important;
+    clip: auto !important;
+    clip-path: none !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    transition: none !important;
+    animation: none !important;
+}
+
+/* Autres éléments d'intro */
+.intro-screen .intro-content h2,
+.intro-screen .intro-content .team,
+.intro-screen .intro-content .scroll-hint {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    transform: none !important;
+}
+
+/* Assurez-vous que le conteneur intro est visible et correctement positionné */
+.intro-screen {
+    z-index: 100 !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.intro-content {
+    display: block !important;
+    position: relative !important;
+    z-index: 101 !important;
+    width: 100% !important;
+    max-width: 1200px !important;
+    padding: 2rem !important;
+    margin: 0 auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Style du H1 avec effet de dégradé */
+.intro-screen .intro-content h1 {
+    background: linear-gradient(45deg, #e0a458, #8b4513) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    text-shadow: 0 2px 15px rgba(92, 61, 46, 0.2) !important;
+    font-weight: 800 !important;
+}
