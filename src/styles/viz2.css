@@ -23,6 +23,16 @@
   padding: 2rem;
   background-color: transparent;
 }
+/* Ajoutez ceci à votre viz2.css */
+#viz-2 .viz2-animate-title {
+  opacity: 0 !important; /* État initial */
+  transform: scale(1.25) !important; 
+}
+
+#viz-2 .viz2-animate-title.visible {
+  opacity: 1 !important; 
+  transform: scale(1) !important;
+}
 
 /* Ajuster le contenu pour qu'il prenne toute la largeur */
 #section-2 .scroll-content,

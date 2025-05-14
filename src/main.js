@@ -6,11 +6,13 @@ import { drawConsommationChart } from "./consommationChart.js";
 import { loadAllData } from "./data_loader.js";
 import { initMuseesVisualisation } from './musee.js';
 import { setupChocolateProgressBar,  setupEtapeTimeline, setupIntroToTimelineTransition, setupScrollRevealTimeline, setupGlobeToChartTransition, setupGenreToMuseeTransition} from './animations.js';
-import { initFeves } from './feve.js';
+import { initFeves, animateViz2Titles, animateViz2Bars } from './feve.js';
+import { setupTimelineSlideIn } from './viz1_animation.js';
+// import {  } from './viz2_animation.js';
 import { initCarousel } from './fabricants_marques.js';
 import { initGenreIndustrie } from './genre_industrie.js';
 import { setupConsommationChart3D } from './Transformation3d.js';
-import { setupTimelineSlideIn } from './viz1_animation.js';
+
 
 // Configuration globale
 const config = {
@@ -63,11 +65,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupScrollRevealTimeline();
     setupGlobeToChartTransition();
     setupGenreToMuseeTransition();
+
+    setupTimelineSlideIn();
+
+    if (typeof animateViz2Titles === 'function') {
+        animateViz2Titles().then(() => animateViz2Bars());
+      }
     initFeves();
     initCarousel();
     initGenreIndustrie();
-
-setupTimelineSlideIn();
 
      // Ajouter l'effet 3D pour la section de consommation
      setupConsommationChart3D();

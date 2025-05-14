@@ -22,4 +22,4 @@ export function setupTimelineSlideIn() {
   }
   
   // Appel automatique si tu veux que ça s'active direct au chargement du fichier
-  document.addEventListener('DOMContentLoaded', setupTimelineSlideIn);
+  // document.addEventListener('DOMContentLoaded', setupTimelineSlideIn);
