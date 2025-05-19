@@ -321,3 +321,65 @@ export function setupGenreToMuseeTransition() {
   `;
   document.head.appendChild(style);
 }
+
+// intro button 
+export function setupIntroClickNavigation() {
+  const startButton = document.getElementById('start-exploration');
+  const scrollContainer = document.querySelector('.scroll-pages-container');
+  
+  // Prevent scrolling initially
+  scrollContainer.style.overflowY = 'hidden';
+  
+  // Add click handler
+  startButton.addEventListener('click', () => {
+    // Enable scrolling
+    scrollContainer.style.overflowY = 'scroll';
+    
+    // Scroll to the next section
+    document.getElementById('viz-1').scrollIntoView({ 
+      behavior: 'smooth' 
+    });
+    
+    // Add pointer cursor to indicate it's clickable
+    startButton.style.cursor = 'pointer';
+  });
+}
+
+
+//Back button 
+export function setupBackToTopButton() {
+  const backToTopButton = document.getElementById('back-to-top');
+  const scrollContainer = document.querySelector('.scroll-pages-container');
+  
+  if (!backToTopButton || !scrollContainer) {
+    console.error("Back to top button or scroll container not found");
+    return;
+  }
+  
+  console.log("Back to top button setup started");
+  
+  // Show button when near bottom of page
+  scrollContainer.addEventListener('scroll', () => {
+    const scrollHeight = scrollContainer.scrollHeight;
+    const scrollTop = scrollContainer.scrollTop;
+    const clientHeight = scrollContainer.clientHeight;
+    
+    // Show button when user has scrolled 80% of the way down
+    if (scrollTop + clientHeight > scrollHeight * 0.8) {
+      backToTopButton.classList.add('visible');
+      console.log("Button should be visible now");
+    } else {
+      backToTopButton.classList.remove('visible');
+    }
+  });
+  
+  // Scroll to top when button is clicked
+  backToTopButton.addEventListener('click', () => {
+    scrollContainer.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+  
+  console.log("Back to top button setup completed");
+}

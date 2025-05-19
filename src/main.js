@@ -5,10 +5,9 @@
 import { drawConsommationChart } from "./consommationChart.js";
 import { loadAllData } from "./data_loader.js";
 import { initMuseesVisualisation } from './musee.js';
-import { setupChocolateProgressBar, setupGlobeToChartTransition, setupGenreToMuseeTransition} from './animations.js';
+import { setupChocolateProgressBar, setupGlobeToChartTransition, setupGenreToMuseeTransition, setupBackToTopButton, setupIntroClickNavigation} from './animations.js';
 import { initFeves, animateViz2Titles, animateViz2Bars } from './feve.js';
 import { setupTimelineSlideIn } from './viz1_animation.js';
-// import {  } from './viz2_animation.js';
 import { initCarousel } from './fabricants_marques.js';
 import { initGenreIndustrie } from './genre_industrie.js';
 import { setupConsommationChart3D } from './Transformation3d.js';
@@ -55,6 +54,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     hideLoader();
+    setupIntroClickNavigation();
     setupScrollTriggers();
     await initVisualizations();
     setupStepScrollTimeline();
@@ -76,8 +76,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     
      // Ajouter des paillettes de chocolat qui tombent lors du scroll
      setupChocolateParticles();
-
     setupTimelineSlideIn();
+
+    setupBackToTopButton();
 });
 
 function showErrorMessage(message) {
