@@ -623,7 +623,6 @@ footer {
     color: white;
     border: none;
     font-size: 16px;
-    cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     opacity: 0;
     transition: opacity 0.3s, transform 0.3s;
@@ -642,7 +641,6 @@ footer {
     transform: scale(1.05);
   }
   .scroll-hint {
-    cursor: pointer;
     padding: 12px 24px;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 30px;

@@ -25,7 +25,6 @@
     border: none;
     font-size: 4rem;
     font-weight: 900;
-    cursor: pointer;
     color: #5c3d2e;
     transition: transform .2s ease;
     z-index: 10;

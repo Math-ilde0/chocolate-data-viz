@@ -119,7 +119,6 @@ function showErrorMessage(message) {
     button.style.padding = '0.5rem 1rem';
     button.style.borderRadius = '4px';
     button.style.marginTop = '1rem';
-    button.style.cursor = 'pointer';
 
     document.body.appendChild(errorDiv);
 }

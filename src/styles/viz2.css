@@ -91,7 +91,6 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  cursor: pointer;
   padding: 0.5rem; /* NOUVEAU: plus d'espace autour de chaque élément */
   margin: 0.5rem; /* NOUVEAU: marge entre éléments */
 }
