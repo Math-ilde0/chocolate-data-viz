@@ -1,25 +1,35 @@
-// src/viz1_animation.js
-
 export function setupTimelineSlideIn() {
-    const etapes = document.querySelectorAll('#viz-1 .etape');
-    if (etapes.length === 0) return;
+  // Remove all previous observers on these elements
+  const etapes = document.querySelectorAll('#viz-1 .etape');
+  console.log("Found etapes:", etapes.length);
+  if (etapes.length === 0) return;
   
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-          }
-        });
-      },
-      {
-        root: null, // viewport
-        threshold: 0.3,
-      }
-    );
+  // Force initial state reset
+  etapes.forEach(etape => {
+    etape.classList.remove('active');
+    // Force browser reflow
+    void etape.offsetWidth;
+  });
   
-    etapes.forEach((etape) => observer.observe(etape));
-  }
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        console.log("Entry:", entry.target, "isIntersecting:", entry.isIntersecting);
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    },
+    {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1
+    }
+  );
   
-  // Appel automatique si tu veux que ça s'active direct au chargement du fichier
-  // document.addEventListener('DOMContentLoaded', setupTimelineSlideIn);
+  etapes.forEach(etape => observer.observe(etape));
+  console.log("Timeline animation setup complete");
+
+  // Make sure viz-1 itself is visible
+  document.querySelector('#viz-1')?.classList.add('visible');
+}

@@ -313,8 +313,154 @@
 <script type="module" src="/src/chart.js"></script>
 <script type="module" src="src/main.js"></script>
 </div>
-
-<script type="module" src="src/viz1_animation.js"></script>
-<script type="module" src="src/viz2_animation.js"></script>
 </body>
-</html>
+</html>Since there is no selected code, I will provide a general improvement to the HTML structure and organization. Here's a modified version of the code:
+
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Histoire du Chocolat Suisse - Visualisation de Données</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="circularcursor"></div>
+  <div class="scroll-pages-container">
+    <main id="scrollytelling">
+      <!-- Introduction -->
+      <section class="scroll-section intro-screen" id="intro">
+        <div class="intro-content">
+          <h1>Aux Origines du Chocolat Suisse</h1>
+          <h2>Plongez dans un univers où se rencontrent les parfums subtils du cacao, les traditions suisses transmises de génération en génération et l'excellence d'un savoir-faire artisanal reconnu dans le monde entier</h2>
+          <p class="team">Un projet de : Samuel Teixeira, Estelle Rossier & Mathilde Jaccard</p>
+          <p class="scroll-hint">
+            Faites défiler pour commencer l'exploration
+            <span class="drip"></span>
+            <span class="drip-2"></span>
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 1: Timeline -->
+      <section class="scroll-section full-timeline" id="viz-1">
+        <div class="timeline-slides">
+          <!-- Étape 1 : gauche -->
+          <div class="etape gauche">
+            <div class="etape-col content-col">
+              <div class="content">
+                <img src="public/assets/dates/1502.png" alt="Christophe Colomb">
+                <h3>1502 – Christophe Colomb découvre le cacao</h3>
+                <p>
+                  Lors d'un voyage vers les Amériques, Christophe Colomb entre en contact avec les fèves de cacao. Il les rapporte en Europe, sans vraiment comprendre leur valeur. C'est pourtant le point de départ d'une grande aventure : l'introduction du cacao sur le continent européen.
+                </p>
+              </div>
+            </div>
+            <div class="etape-col timeline-col">
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="etape-col empty-col"></div>
+          </div>
+
+          <!-- Étape 2 : droite -->
+          <div class="etape droite">
+            <div class="etape-col empty-col"></div>
+            <div class="etape-col timeline-col">
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="etape-col content-col">
+              <div class="content">
+                <img src="public/assets/dates/1528.png" alt="Espagne">
+                <h3>1528 – Introduction du cacao en Espagne</h3>
+                <p>
+                  Le conquistador Hernán Cortés ramène le cacao à la cour d'Espagne. Très vite, il est transformé en boisson chaude, sucrée et épicée, appréciée des nobles. Le cacao devient un produit de luxe et commence à se diffuser dans les cours royales d'Europe.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Étape 3 : gauche -->
+          <div class="etape gauche">
+            <div class="etape-col content-col">
+              <div class="content">
+                <img src="public/assets/dates/1679.png" alt="Bruxelles">
+                <h3>1679 – Un maire suisse découvre le chocolat à Bruxelles</h3>
+                <p>
+                  Lors d'un voyage à Bruxelles, un maire suisse découvre le chocolat et en ramène l'idée dans son pays. Cette rencontre marque le début d'une longue relation entre la Suisse et le chocolat, qui deviendra plus tard une référence mondiale.
+                </p>
+              </div>
+            </div>
+            <div class="etape-col timeline-col">
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="etape-col empty-col"></div>
+          </div>
+
+          <!-- Étape 4 : droite -->
+          <div class="etape droite">
+            <div class="etape-col empty-col"></div>
+            <div class="etape-col timeline-col">
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="etape-col content-col">
+              <div class="content">
+                <img src="public/assets/dates/1818.png" alt="Cailler">
+                <h3>1818 – Début de l'industrialisation du chocolat en Suisse</h3>
+                <p>
+                  François-Louis Cailler fonde la première chocolaterie suisse. Le chocolat n'est plus réservé aux élites : il devient un produit de consommation courante grâce à la production industrielle. Une nouvelle ère commence pour le chocolat et pour la Suisse.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Évolution de l'importation de cacao en Suisse -->
+      <section class="scroll-section" id="viz-2">
+        <div class="scroll-content">
+          <h2 class="viz2-animate-title">Évolution de l'importation de cacao en Suisse</h2>
+          <p class="viz2-animate-title">
+            Cette visualisation illustre la croissance continue de l'importation de fèves de cacao par la Suisse au fil des années. 
+            Chaque sac représente une année, et leur taille reflète la quantité importée.
+          </p>
+        </div>
+        <div id="graph-container">
+          <div class="bar" data-tooltip="En l'an 2000, la Suisse a importé 21 989 tonnes de cacao — soit 44 éléphants adultes.">
+            <img src="public/assets/sac-feve-cacao.svg" alt="sac cacao" width="80">
+            <div class="year">2000</div>
+          </div>
+          <div class="bar" data-tooltip="En 2005, 32 266 tonnes de cacao ont été importées, soit 65 pachydermes bien nourris.">
+            <img src="public/assets/sac-feve-cacao.svg" alt="sac cacao" width="100">
+            <div class="year">2005</div>
+          </div>
+          <div class="bar" data-tooltip="En 2010, ce sont 41 973 tonnes de cacao, équivalentes à 210 camions poids lourds.">
+            <img src="public/assets/sac-feve-cacao.svg" alt="sac cacao" width="120">
+            <div class="year">2010</div>
+          </div>
+          <div class="bar" data-tooltip="En 2015, la Suisse a importé 41 000 tonnes de cacao — soit 820 containers maritimes.">
+            <img src="public/assets/sac-feve-cacao.svg" alt="sac cacao" width="120">
+            <div class="year">2015</div>
+          </div>
+          <div class="bar" data-tooltip="En 2020, 48 670 tonnes de cacao ont été englouties — l'équivalent de 97 baleines bleues !">
+            <img src="public/assets/sac-feve-cacao.svg" alt="sac cacao" width="135">
+            <div class="year">2020</div>
+          </div>
+          <div class="bar" data-tooltip="En 2024, la Suisse a importé 58 794 tonnes, soit 294 avions commerciaux remplis de fèves.">
+            <img src="public/assets/sac-feve-cacao.svg" alt="sac cacao" width="160">
+            <div class="year">2024</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: -->
+      <section class="scroll-section centered-globe-section" id="section-3">
+        <div class="full-screen-graphic">
+          <div id="viz-3" class="viz-container globe-only">
+            <h2>De la Fève à la Renommée Mondiale</h2>
+            <p class="globe-description">Explorez la géographie du chocolat : les pays en brun foncé sont les grands 
+            producteurs de cacao, tandis que les teintes violettes indiquent les plus grands consommateurs. 
+            Découvrez comment la Suisse, sans produire une seule fève, est devenue l'épicentre du chocolat de qualité.</p>
+            <!-- Le globe sera injecté ici par D3 -->
+            <div class="legends-container">
+              <div id="color-scale" class="legend-box"></div>
