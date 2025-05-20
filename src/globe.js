@@ -2,7 +2,7 @@
 const GEO_JSON_PATH = "/data/globeCoordinates.json";
 const DATA_CSV_PATH = "/data/production_cacao_mondiale_2023_2024.csv";
 const CONSUMPTION_CSV_PATH = "/data/chocolate_consumption.csv";
-const FLAG_PATH = "/assets/flags/";
+const FLAG_PATH = "./assets/flags/";
 
 const COLOR_RANGE = ["#ffe6cc", "#61391b"];
 const VIOLET_RANGE = ["#f3e5f5", "#6a1b9a"];
@@ -169,7 +169,7 @@ function createVioletPalette(data) {
 
 function updateTooltipContent(country) {
     d3.select("#tooltip-country-name").text(country.name);
-    d3.select("#tooltip-flag").attr("src", `/assets/flags/${country.code}.png`);
+    d3.select("#tooltip-flag").attr("src", `./assets/flags/${country.code}.png`);
 
     if (country.production) {
         d3.select("#tooltip-production").style("display", "block");

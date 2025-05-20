@@ -1,10 +1,10 @@
 export function initGenreIndustrie() {
 
-  const CSV_PATH = "/data/genre_industrie.csv";
+  const CSV_PATH = "./data/genre_industrie.csv";
   
   const ICONS = {
-    Femmes : "/assets/genres/femme.svg",
-    Hommes : "/assets/genres/homme.svg"
+    Femmes : "./assets/genres/femme.svg",
+    Hommes : "./assets/genres/homme.svg"
   };
   
   const MAX_HEIGHT = 260;

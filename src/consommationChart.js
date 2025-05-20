@@ -1,4 +1,4 @@
-export function drawConsommationChart(containerId, csvPath = "/data/comparaison_ventes_exportations_chocolat.csv") {
+export function drawConsommationChart(containerId, csvPath = "public/data/comparaison_ventes_exportations_chocolat.csv") {
   console.log("Drawing chart for", containerId, "with data from", csvPath);
   
   // Vérifier si le conteneur existe
@@ -34,8 +34,8 @@ export function drawConsommationChart(containerId, csvPath = "/data/comparaison_
     .text("Chargement des données...");
   
   // Chemins vers les images de plaques de chocolat
-  const brunImgPath = "/assets/blond.png"; 
-  const blondImgPath = "/assets/brun.png";
+  const brunImgPath = "./assets/blond.png"; 
+  const blondImgPath = "./assets/brun.png";
   
   // Essayer d'abord avec le chemin fourni
   d3.csv(csvPath)

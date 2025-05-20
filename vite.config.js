@@ -1,5 +1,10 @@
-// vite.config.js
 export default {
   root: './',
-  publicDir: 'public'
+  base: '/chocolate-data-viz/', // Changement crucial pour GitHub Pages
+  publicDir: 'public',
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    sourcemap: true
+  }
 };
