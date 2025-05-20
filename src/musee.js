@@ -18,7 +18,7 @@ export function initMuseesVisualisation() {
   
         for (let i = 0; i < nbBonshommes; i++) {
           const bonhomme = document.createElement('img');
-          bonhomme.src = 'public/assets/musee/homme.svg';
+          bonhomme.src = '/assets/musee/homme.svg';
           bonhomme.classList.add('bonhomme');
           bonhomme.style.left = `${10 + Math.random() * 80}%`;
           bonhomme.style.bottom = `-40px`;

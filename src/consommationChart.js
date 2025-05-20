@@ -45,7 +45,7 @@ export function drawConsommationChart(containerId, csvPath = "/data/comparaison_
       console.log("Tentative avec un chemin alternatif...");
       
       // Essayer avec un chemin alternatif (sans le préfixe "public")
-      const alternativePath = csvPath.replace("public/", "");
+      const alternativePath = csvPath.replace("/", "");
       d3.csv(alternativePath)
         .then(processData)
         .catch(error2 => {

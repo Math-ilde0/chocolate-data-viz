@@ -1,7 +1,7 @@
 
-const GEO_JSON_PATH = "public/data/globeCoordinates.json";
-const DATA_CSV_PATH = "public/data/production_cacao_mondiale_2023_2024.csv";
-const CONSUMPTION_CSV_PATH = "public/data/chocolate_consumption.csv";
+const GEO_JSON_PATH = "/data/globeCoordinates.json";
+const DATA_CSV_PATH = "/data/production_cacao_mondiale_2023_2024.csv";
+const CONSUMPTION_CSV_PATH = "/data/chocolate_consumption.csv";
 const FLAG_PATH = "/assets/flags/";
 
 const COLOR_RANGE = ["#ffe6cc", "#61391b"];

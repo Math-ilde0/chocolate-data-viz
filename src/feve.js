@@ -20,7 +20,7 @@ export function initFeves() {
     const height = 100 + scale * 150;
 
     const img = document.createElement('img');
-    img.src = 'public/assets/sac-feve-cacao.svg';
+    img.src = '/assets/sac-feve-cacao.svg';
     img.style.height = `${height}px`;
 
     const year = document.createElement('div');

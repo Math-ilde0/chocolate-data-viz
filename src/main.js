@@ -392,7 +392,7 @@ async function initVisualizations() {
             state.globeDrawn = true;
         });
     }
-    drawConsommationChart("#viz-4", "public/data/comparaison_ventes_exportations_chocolat.csv");
+    drawConsommationChart("#viz-4", "/data/comparaison_ventes_exportations_chocolat.csv");
     const museeElements = document.querySelectorAll('#section-8 .musee');
 if (museeElements.length > 0) {
     initMuseesVisualisation();
