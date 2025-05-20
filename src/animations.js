@@ -373,12 +373,13 @@ export function setupBackToTopButton() {
     }
   });
   
-  // Scroll to top when button is clicked
+  // Rafraîchir la page et revenir au début quand le bouton est cliqué
   backToTopButton.addEventListener('click', () => {
-    scrollContainer.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    // Utiliser cette méthode pour s'assurer que la page revienne au début après le rechargement
+    window.location.href = window.location.pathname;
+    
+    // Alternative: forcer un rechargement complet de la page (sans utiliser le cache)
+    // window.location.reload(true);
   });
   
   console.log("Back to top button setup completed");
