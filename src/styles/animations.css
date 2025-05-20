@@ -1,3 +1,5 @@
+
+
 #choco-progress-container {
     position: fixed;
     top: 0;
@@ -229,27 +231,51 @@
   z-index: -9999;
 }
 
-/* Ajout d'espace entre les sections 7 et 8 */
+/* Styles pour la transition blink entre les sections 7 et 8 */
+.blink-transition {
+  position: fixed;
+  inset: 0;
+  background-color: var(--primary-color, #5c3d2e);
+  z-index: 900;
+  pointer-events: none;
+  
+  /* Variables pour contrôler l'intensité de l'effet */
+  --contrast: 4;
+  --blur: 0.5rem;
+  
+  /* État initial - invisible */
+  opacity: 0;
+  visibility: hidden;
+}
 
-/* Ajoute une grande marge en bas de la section 7 */
+/* Animation blink pour la transition */
+@keyframes blink-effect {
+  0%, 
+  100% {
+    filter: blur(var(--blur)) contrast(var(--contrast));
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  50% {
+    filter: blur(0) contrast(1);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Classe pour activer l'animation */
+.blink-transition.active {
+  animation: blink-effect 1.2s ease-in-out forwards;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Supprimer l'espace entre les sections pour une transition plus fluide */
 #section-7 {
-  margin-bottom: 250px; /* Vous pouvez ajuster cette valeur selon vos besoins */
+  margin-bottom: 0 !important;
 }
 
-/* Optionnellement, si vous voulez aussi ajouter de l'espace en haut de la section 8 */
 #section-8 {
-  padding-top: 50px; /* Espace supplémentaire au début de la section 8 */
-}
-
-/* Pour améliorer la transition visuelle */
-#section-7::after {
-  content: "";
-  display: block;
-  height: 50px; /* Hauteur de l'élément de transition */
-  width: 100%;
-  background: linear-gradient(to bottom, var(--light-bg), transparent);
-  position: absolute;
-  bottom: -50px;
-  left: 0;
-  pointer-events: none; /* Ne bloque pas les interactions */
+  padding-top: 0 !important;
 }

@@ -9,7 +9,6 @@
 
 :root {
     --primary-color: #5c3d2e;
-    --secondary-color: #b85c38;
     --accent-color: #e0a458;
     --light-bg: #f9ecd9;
     --dark-text: #2d2424;
@@ -39,10 +38,11 @@ body {
 }
 
 .scroll-pages-container {
-    overflow-y: scroll;      /* on remet le scroll ici */
+    scroll-behavior: smooth; /* Animation de défilement fluide */
+    overflow-y: scroll;
     height: 100vh;
-    scrollbar-width: none;   /* Firefox */
-}
+    scrollbar-width: none;
+  }
   
 .scroll-pages-container::-webkit-scrollbar {
     display: none;           /* Chrome, Safari */
@@ -77,15 +77,18 @@ header p {
     scroll-snap-type: y mandatory;
 }
 
+
 .scroll-section {
     min-height: 100vh;
     scroll-snap-align: start;
+    scroll-snap-stop: always; /* Empêche de "sauter" des sections */
     display: flex;
     flex-wrap: wrap;
     position: relative;
     z-index: 1;
     overflow: visible;
-}
+  }
+  
 
 /* Sections suivantes */
 .sticky-graphic {
@@ -448,7 +451,6 @@ footer {
   
 #section-8 .scroll-content {
     max-width: 800px;
-    margin-bottom: 2rem;
 }
 
 /* Globe Description pour viz-3 */
@@ -650,3 +652,4 @@ footer {
   .scroll-hint:hover {
     background-color: rgba(255, 255, 255, 0.3);
   }
+  
