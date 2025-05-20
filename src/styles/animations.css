@@ -266,7 +266,7 @@
 
 /* Classe pour activer l'animation */
 .blink-transition.active {
-  animation: blink-effect 1.2s ease-in-out forwards;
+  animation: blink-effect 0.5s ease-in-out forwards;
   opacity: 1;
   visibility: visible;
 }
