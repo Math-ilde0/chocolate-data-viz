@@ -58,4 +58,4 @@
             }
         }
     `,document.head.appendChild(r),window.addEventListener("scroll",()=>{const a=window.pageYOffset||document.documentElement.scrollTop,c=Math.abs(a-t);if(c>15){const s=Math.min(5,Math.floor(c/30));for(let i=0;i<s;i++)n()}t=a,clearTimeout(o),o=setTimeout(()=>{Math.random()>.7&&n()},200)})}async function Le(){if(!S.isDataLoaded){console.error("Les données ne sont pas encore chargées");return}S.globeDrawn||ie(async()=>{const{drawGlobe:t}=await import("./globe-DXWQAkgQ.js");return{drawGlobe:t}},[]).then(({drawGlobe:t})=>{t("#viz-3"),S.globeDrawn=!0}),ce("#viz-4","./data/comparaison_ventes_exportations_chocolat.csv"),document.querySelectorAll("#section-8 .musee").length>0&&le()}window.addEventListener("resize",Te(()=>{var e;S.currentSection&&((e=S.charts[S.currentSection])!=null&&e.resize)&&S.charts[S.currentSection].resize()},250));function Te(e,t){let o;return function(){const n=this,r=arguments;clearTimeout(o),o=setTimeout(()=>{e.apply(n,r)},t)}}
-//# sourceMappingURL=index-BzeyEox1.js.map
+//# sourceMappingURL=index-C4hXgYNM.js.map
