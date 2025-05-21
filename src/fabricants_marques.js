@@ -46,7 +46,7 @@ export const brands = [
     description: "Fabricant des Ragusa et Torino",
     date: "1929",
     anecdote: "La véritable histoire du Ragusa : Créé en 1942, il devait s'appeler 'Vénus', mais le nom a été changé pour évoquer le sud.",
-    logo: "public/assets/fabricants/camillesansfond.png"
+    logo: "./assets/fabricants/camillesansfond.png"
   }
 ];
 

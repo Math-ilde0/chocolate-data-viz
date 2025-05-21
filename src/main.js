@@ -11,6 +11,7 @@ import { setupTimelineSlideIn } from './viz1_animation.js';
 import { initCarousel } from './fabricants_marques.js';
 import { initGenreIndustrie } from './genre_industrie.js';
 import { setupConsommationChart3D } from './Transformation3d.js';
+import '../style.css';
 
 
 // Configuration globale
