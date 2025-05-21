@@ -152,7 +152,7 @@
   width: 12px;
   height: 12px;
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  background: #794f3a;
+  background: #5c3d2e;
   animation: dripping 2s infinite;
   filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.2));
 }
@@ -165,7 +165,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  background: #794f3a;
+  background: #5c3d2e;
   animation: dripping 2.5s infinite 0.7s;
   z-index: -1;
 }
@@ -178,7 +178,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  background: #a06235;
+  background: #f9ecd9;
   animation: dripping 3s infinite 1.3s;
   z-index: -1;
 }

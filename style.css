@@ -9,9 +9,8 @@
 
 :root {
     --primary-color: #5c3d2e;
-    --accent-color: #e0a458;
     --light-bg: #f9ecd9;
-    --dark-text: #2d2424;
+    --dark-text: #5c3d2e;
     --white: #ffffff;
     --transition: all 0.3s ease;
     --timeline-color: #8b5a2b;
@@ -129,7 +128,7 @@ header p {
     justify-content: center;
     align-items: center;
     position: relative; /* pas "sticky" ici */
-    margin-bottom: 2rem;
+    margin-bottom: 2.3rem;
 }
 
 #viz-6 .scroll-content {
@@ -367,8 +366,8 @@ footer {
 }
 
 .full-screen-graphic h2 {
-    font-size: 2rem;
-    color: var(--secondary-color);
+    font-size: 2.3rem;
+    color: #5c3d2e;
     margin-bottom: 1.5rem; /* ← Réduit ici aussi */
 }
 
@@ -509,7 +508,7 @@ footer {
     opacity: 1 !important;
     visibility: visible !important;
     display: block !important;
-    color: #2d2424;
+    color: #5c3d2e;
     margin-bottom: 1.5rem;
     text-align: center;
     font-size: 1.1rem;
@@ -601,10 +600,9 @@ footer {
 
 /* Style du H1 avec effet de dégradé */
 .intro-screen .intro-content h1 {
-    background: linear-gradient(45deg, #e0a458, #8b4513) !important;
     -webkit-background-clip: text !important;
     background-clip: text !important;
-    color: transparent !important;
+    color: #f9ecd9 !important;
     text-shadow: 0 2px 15px rgba(92, 61, 46, 0.2) !important;
     font-weight: 800 !important;
 }
@@ -652,4 +650,37 @@ footer {
   .scroll-hint:hover {
     background-color: rgba(255, 255, 255, 0.3);
   }
+
+  h1, h2, .choco-title, .brand-name, .viz-title {
+    font-family: 'Pacifico', cursive, Arial, sans-serif !important;
+    letter-spacing: 1px;
+  }
+
+
+
+
+  body {
+    font-family: 'Nunito', Arial, sans-serif !important;
+  }
   
+  h1, h2, h3, .choco-title, .brand-name, .viz-title {
+    font-family: 'Pacifico', cursive, Arial, sans-serif !important;
+    letter-spacing: 1px;
+  }
+  
+  p, .globe-description, .reveal-text, .viz8-intro, .anecdote, .creation-date, .sex-label, .year-label, .fact-trigger, button, .team {
+    font-family: 'Nunito', Arial, sans-serif !important;
+    font-weight: 400;
+  }
+  
+  strong, b, h4, h5, h6 {
+    font-family: 'Nunito', Arial, sans-serif !important;
+    font-weight: 700;
+  }
+
+  .intro-subtitle {
+    font-family: 'Nunito', Arial, sans-serif !important;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 0;
+  }

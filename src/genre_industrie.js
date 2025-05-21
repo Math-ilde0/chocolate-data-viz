@@ -8,7 +8,7 @@ export function initGenreIndustrie() {
   };
   
   const MAX_HEIGHT = 260;
-  const ANIM_DURATION = 1000;
+  const ANIM_DURATION = 3000;
   
   d3.dsv(";", CSV_PATH, d => {
     const r = { Sexe: d.Sexe };

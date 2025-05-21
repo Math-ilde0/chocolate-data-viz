@@ -1,13 +1,11 @@
 /* ---------- base ---------- */
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
-body{background:#fff7ef;color:#2d2424}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Pacifico', cursive;}
+body{background:#fff7ef;color:#5c3d2e}
 .wrapper{max-width:950px;margin:2rem auto;padding:0 1rem;text-align:center}
 h1{font-size:1.9rem;color:#5c3d2e;margin-bottom:2rem}
 .source{font-size:.85rem;color:#5b5b5b;margin-top:1.5rem}
 
-#viz-7 {
-  background-color: white; /* Ajout du fond blanc */
-}
+
 /* ---------- graphique ---------- */
 #chart{
   display:flex;
@@ -15,7 +13,6 @@ h1{font-size:1.9rem;color:#5c3d2e;margin-bottom:2rem}
   justify-content:center;
   align-items:flex-end;
   flex-wrap:wrap;
-  padding-bottom:1rem;
 }
 
 .year-group{
@@ -68,13 +65,14 @@ h1{font-size:1.9rem;color:#5c3d2e;margin-bottom:2rem}
   width:80px;
   line-height:1.1rem;
 }
-.value{color:#2d2424;font-weight:500}
-.pct{color:#8c735b;font-weight:700}
+.value{color:#5c3d2e;font-weight:500}
+.pct{color:#5c3d2e;font-weight:700}
 
 /* noms + année */
 .sex-row{display:flex;gap:1.5rem;justify-content:center}
 .sex-label{width:80px;text-align:center;font-size:.78rem;font-weight:700;color:#5c3d2e}
-.year-label{font-size:.9rem;color:#7a6d5b;margin-top:.3rem}
+.year-label{font-size:1rem;color:#5c3d2e;margin-top:.3rem; font-family:'Pacifico', cursive !important;}
+
 
 .stats-container {
   position: relative;
@@ -83,5 +81,25 @@ h1{font-size:1.9rem;color:#5c3d2e;margin-bottom:2rem}
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 0.3rem;
+  margin-bottom: -0.1rem;
+}
+
+#viz-7.viz-container {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  margin-bottom: 10%;
+}
+
+#viz-7 h2 {
+  font-size: 2.2rem;
+  color: #5c3d2e;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: -1px;
+  margin-bottom: 2rem;
+}
+
+#viz-7 p {
+  text-align: center;
 }

@@ -5,18 +5,24 @@
    .brand-carousel {
     position: relative;
     padding: 4rem 1rem;
-    background: #fff7ef;
+    background: transparent !important;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
     min-height: 100vh;
+    box-shadow: none !important;
   }
   
   .brand-carousel h1 {
     color: #5c3d2e;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2.3rem;
+    font-size: 2.2rem;
+  }
+
+  .brand-carousel p {
+    text-align: center;
   }
   
   /* ----- flèches ----- */
@@ -26,7 +32,7 @@
     font-size: 4rem;
     font-weight: 900;
     color: #5c3d2e;
-    transition: transform .2s ease;
+    transition: transform .3s ease;
     z-index: 10;
   }
   
@@ -75,7 +81,7 @@
     opacity: 0;
     filter: grayscale(100%) brightness(85%);
     transition: transform 0.5s ease, opacity 0.5s ease;
-    background: #f5f5f5;
+    background: #f9ecd9;
     border-radius: 16px;
     overflow: hidden;
     display: flex;
@@ -89,7 +95,7 @@
     height: 220px;
     opacity: 1;
     filter: none;
-    background: #ffffff;
+    background: #f9ecd9;
     box-shadow: 0 4px 20px rgba(0,0,0,.1);
     transform: translateX(-50%);
     left: 50%;
@@ -132,22 +138,48 @@
     max-width: 700px;
     font-family: "Arial", sans-serif;
     margin-top: 2rem;
-    padding: 1rem;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 2rem 2.5rem;
+    background: #5c3d2e; /* Fond doux, tu peux mettre #fff ou #f8eedc selon ton design */
+    border-radius: 20px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.40);
+    color: #f5e1c5;
+    margin-bottom: 2rem;
+    transition: box-shadow 0.3s;
   }
   
   .brand-info h3 {
     font-size: 1.6rem;
     margin: .5rem 0;
-    color: #5c3d2e;
+    color: #ffffff;
   }
   
   .brand-info p {
     font-size: 1rem;
     line-height: 1.4;
-    color: #333;
+    color: #f9ecd9;
     margin: 0.5rem 0;
   }
-  
+
+
+
+
+
+  /* Animation pop pour les logos et la box info */
+.logo-item, .brand-info {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.7s cubic-bezier(.77,0,.18,1), transform 0.7s cubic-bezier(.77,0,.18,1);
+}
+
+.logo-item.pop-in,
+.brand-info.pop-in {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 10;
+}
+
+/* Affiche toujours la box anecdote même sans animation */
+.brand-info {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}

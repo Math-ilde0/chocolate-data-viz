@@ -11,7 +11,7 @@ export const brands = [
     description: "Inventeur du chocolat fondant grâce au conchage",
     date: "1879",
     anecdote: "L'erreur géniale : Rodolphe Lindt a oublié sa machine en marche pendant 72h, créant le 1er chocolat qui fond dans la bouche.",
-    logo: "public/assets/fabricants/Lindt.jpeg"
+    logo: "public/assets/fabricants/lindtsansfond.png"
   },
   {
     name: "Milka",
@@ -45,8 +45,8 @@ export const brands = [
     name: "Camille Bloch",
     description: "Fabricant des Ragusa et Torino",
     date: "1929",
-    anecdote: "La véritable histoire du Ragusa : Créé en 1942, il devait s'appeler 'Vénus', mais le nom a été changé pour évoquer le sud (Lugano = 'Ragusa' en italien).",
-    logo: "public/assets/fabricants/CamilleBloch.png"
+    anecdote: "La véritable histoire du Ragusa : Créé en 1942, il devait s'appeler 'Vénus', mais le nom a été changé pour évoquer le sud.",
+    logo: "public/assets/fabricants/camillesansfond.png"
   }
 ];
 

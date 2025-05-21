@@ -23,7 +23,7 @@
   top: 0;
   width: 8px;
   height: 100%;
-  background: #5e2c04;
+  background: #5c3d2e;
   transform: translateX(-50%);
   z-index: 1;
   border-radius: 4px;
@@ -92,7 +92,7 @@
 .timeline-dot {
   width: 48px;
   height: 32px;
-  background: #5e2c04;
+  background: #5c3d2e;
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
   position: relative;
   z-index: 4;
@@ -114,13 +114,13 @@
 .etape.gauche .timeline-dot::after {
   right: -12px;
   border-width: 8px 0 8px 18px;
-  border-color: transparent transparent transparent #5e2c04;
+  border-color: transparent transparent transparent #5c3d2e;
 }
 
 .etape.droite .timeline-dot::after {
   left: -12px;
   border-width: 8px 18px 8px 0;
-  border-color: transparent #5e2c04 transparent transparent;
+  border-color: transparent #5c3d2e transparent transparent;
 }
 
 .content {
@@ -148,7 +148,7 @@
 
 .content h3 {
   font-size: 1.3em;
-  color: #5e2c04;
+  color: #5c3d2e;
   margin: 10px 0;
   font-weight: bold;
   text-align: inherit;
@@ -156,29 +156,68 @@
 
 .content p {
   font-size: 1.05em;
-  color: #3a2a1a;
+  color: #5c3d2e;
   margin: 0;
   line-height: 1.5;
   font-family: 'Patrick Hand', cursive, Arial, sans-serif;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .etape {
-    flex-direction: column;
-    min-height: 60vh;
-  }
 
-  .timeline-col {
-    order: 2;
-  }
+.timeline-end-drop {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 36px;
+  background: #5c3d2e;
+  border-radius: 60% 60% 80% 80% / 90% 90% 100% 100%;
+  z-index: 20;
+  box-shadow: 0 8px 24px rgba(92,61,46,0.10);
+  overflow: hidden;
+}
 
-  .content-col, .empty-col {
-    order: 1;
-    max-width: 90vw;
-  }
+.timeline-end-drop::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 10px;
+  background: rgba(255,255,255,0.10);
+  border-radius: 50%;
+  filter: blur(1px);
+}
 
-  .content {
-    text-align: center !important;
+/* Responsive pour les écrans plus petits */
+@media screen and (max-width: 768px) {
+  #viz-4 {
+    width: 95%;
+    padding: 15px;
   }
+  
+  #section-4 h2,
+  #section-4 .choco-title {
+    font-size: 2rem;
+  }
+  
+  #section-4 .fact-trigger {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+  
+  #section-4 .chocolate-fact-box {
+    width: 95%;
+    bottom: -180px;
+  }
+}
+
+
+#viz-6,
+#viz-6 .viz-container,
+#viz-6 .sticky-graphic {
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }

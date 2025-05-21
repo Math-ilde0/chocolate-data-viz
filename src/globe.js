@@ -241,7 +241,7 @@ function drawLegend(svg, colorPalette) {
         .attr("text-anchor", "middle")
         .style("font-size", "12px")
         .style("fill", "#333")
-        .text("Cacao production in tonnes");
+        .text("Production de cacao en tonnes");
 
     // Axe
     const axis = d3.axisBottom(xScale)

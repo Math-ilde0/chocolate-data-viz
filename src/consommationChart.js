@@ -348,8 +348,6 @@ export function drawConsommationChart(containerId, csvPath = "/data/comparaison_
       .attr("text-anchor", "middle")
       .style("font-size", "18px")
       .style("font-weight", "bold")
-      .text("Comparaison des ventes de chocolat : Suisse vs Exportation");
-  
     // Légende
     const legend = svg.append("g")
       .attr("transform", `translate(${width/2 - 100}, ${margin.top + 1})`);
