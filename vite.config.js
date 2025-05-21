@@ -1,6 +1,6 @@
 export default {
   root: './',
-  base: '/chocolate-data-viz/', // Changement crucial pour GitHub Pages
+  base: '/chocolate-data-viz/', 
   publicDir: 'public',
   build: {
     outDir: 'dist',
