@@ -2,14 +2,16 @@
   "name": "chocolate-data-viz",
   "version": "1.0.0",
   "description": "Projet de visualisation de données sur l’histoire du chocolat, son importation en Suisse et son évolution au fil du temps.",
-  "main": "index.js",
+  "main": "main.js",
+  "homepage": "https://math-ilde0.github.io/chocolate-data-viz",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "main -d dist"
   },
   "keywords": [],
   "author": "",

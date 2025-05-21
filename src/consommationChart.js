@@ -1,4 +1,4 @@
-import { buildPath } from './BasePath.js';
+
 
 export function drawConsommationChart(containerId, csvPath = "data/comparaison_ventes_exportations_chocolat.csv") {
   // Vérifier si le conteneur existe

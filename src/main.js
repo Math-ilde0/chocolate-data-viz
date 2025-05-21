@@ -11,13 +11,7 @@ import { setupTimelineSlideIn } from './viz1_animation.js';
 import { initCarousel } from './fabricants_marques.js';
 import { initGenreIndustrie } from './genre_industrie.js';
 import { setupConsommationChart3D } from './Transformation3d.js';
-import { buildPath } from './BasePath.js';
-import { initDebugHelper } from './debugHelpers.js';
-
-// Initialiser le débogueur
-const logDebug = initDebugHelper();
-logDebug("Script principal chargé");
-
+import '../style.css'
 // Configuration globale
 const config = {
     transitionDuration: 800,

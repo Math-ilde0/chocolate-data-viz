@@ -2,8 +2,6 @@
  * Module de chargement des données pour le projet de visualisation du chocolat
  */
 
-import { loadCSV, buildPath } from './BasePath.js';
-
 // Fonction pour charger toutes les données et retourner un objet
 export async function loadAllData() {
     try {
