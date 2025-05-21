@@ -1,6 +1,4 @@
 export function drawConsommationChart(containerId, csvPath = "./data/comparaison_ventes_exportations_chocolat.csv") {
-  console.log("Drawing chart for", containerId, "with data from", csvPath);
-  
   // Vérifier si le conteneur existe
   const container = document.querySelector(containerId);
   if (!container) {
@@ -42,7 +40,6 @@ export function drawConsommationChart(containerId, csvPath = "./data/comparaison
     .then(processData)
     .catch(error => {
       console.error("Erreur lors du chargement du CSV avec le chemin fourni:", error);
-      console.log("Tentative avec un chemin alternatif...");
       
       // Essayer avec un chemin alternatif (sans le préfixe "public")
       const alternativePath = csvPath.replace("/", "");
@@ -75,7 +72,6 @@ export function drawConsommationChart(containerId, csvPath = "./data/comparaison
     });
   
   function processData(data) {
-    console.log("Données CSV chargées:", data);
     
     // Supprimer le message de chargement
     svg.selectAll("text").remove();
@@ -88,7 +84,6 @@ export function drawConsommationChart(containerId, csvPath = "./data/comparaison
     
     // Vérifier les noms de colonnes dans le premier élément
     const firstRow = data[0];
-    console.log("Colonnes dans le CSV:", Object.keys(firstRow));
     
     // Vérifier si nous avons les colonnes attendues ou les colonnes avec les noms français
     const hasExpectedColumns = 'year' in firstRow && 'suisse' in firstRow && 'export' in firstRow;
@@ -107,8 +102,6 @@ export function drawConsommationChart(containerId, csvPath = "./data/comparaison
         export: +(d.export || d['Exportations (t)'] || 0)
       };
     }).filter(d => d.year !== 0); // Filtrer les lignes avec une année invalide
-    
-    console.log("Données nettoyées:", cleanData);
     
     if (cleanData.length === 0) {
       console.error("Aucune donnée valide après nettoyage");
@@ -378,8 +371,6 @@ export function drawConsommationChart(containerId, csvPath = "./data/comparaison
       .text("Exportation")
       .style("font-size", "14px");
     
-    console.log("Graphique généré avec succès");
-    
     // Animation qui se répète toutes les 10 secondes
     function startPeriodicAnimation() {
       if (isAnimationRunning) return;
@@ -404,20 +395,25 @@ export function drawConsommationChart(containerId, csvPath = "./data/comparaison
           const chocolatePieces = group.selectAll(".chocolate-piece");
           
           // Faire disparaître les tablettes
-          chocolatePieces
-            .transition()
-            .delay(delay + i * 50)
-            .duration(500)
-            .attr("opacity", 0)
-            .transition() // Attendre un peu
-            .delay(500)
-            .duration(0)
-            .attr("transform", "translateY(20px)") // Déplacer les tablettes vers le bas
-            .transition() // Puis les faire réapparaître
-            .delay(200)
-            .duration(500)
-            .attr("transform", "translateY(0)") // Remonter à la position originale
-            .attr("opacity", 1);
+          // Faire disparaître les tablettes
+chocolatePieces
+.transition()
+.delay(delay + i * 50)
+.duration(500)
+.attr("opacity", 0)
+.transition() // Attendre un peu
+.delay(500)
+.duration(0)
+.attr("transform", function() {
+  return "translate(0,20)"; // Utiliser translate(0,20) au lieu de translateY(20px)
+})
+.transition() // Puis les faire réapparaître
+.delay(200)
+.duration(500)
+.attr("transform", function() {
+  return "translate(0,0)"; // Utiliser translate(0,0) au lieu de translateY(0)
+})
+.attr("opacity", 1);
           
           // Faire pulser le fond de la barre
           group.select(".bar-background")

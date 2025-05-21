@@ -38,13 +38,10 @@ const state = {
 // Initialisation
 
 document.addEventListener('DOMContentLoaded', async () => {
-    console.log("Initialisation de l'application...");
-
     showLoader();
 
     try {
         const loadedData = await loadAllData();
-        console.log("Toutes les données chargées avec succès:", loadedData);
         state.data = loadedData;
         state.isDataLoaded = true;
     } catch (error) {
@@ -58,7 +55,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupScrollTriggers();
     await initVisualizations();
     setupStepScrollTimeline();
-    updateVisualization(1);
     setupChocolateProgressBar();
     setupGlobeToChartTransition();
     setupGenreToMuseeTransition();
@@ -192,9 +188,7 @@ function setupScrollTriggers() {
 
                 const sectionNumber = parseInt(match[1]);
                 state.currentSection = sectionNumber;
-                console.log(`Section active: ${sectionNumber}`);
 
-                updateVisualization(sectionNumber);
                 animateContent(entry.target);
             }
         });
@@ -383,8 +377,6 @@ async function initVisualizations() {
         return;
     }
 
-    console.log("Initialisation des visualisations...");
-
     // Section 4 – 🌍 Globe interactif + Consommation
     if (!state.globeDrawn) {
         import("./globe.js").then(({ drawGlobe }) => {
@@ -392,7 +384,7 @@ async function initVisualizations() {
             state.globeDrawn = true;
         });
     }
-    drawConsommationChart("#viz-4", "/data/comparaison_ventes_exportations_chocolat.csv");
+    drawConsommationChart("#viz-4", "./data/comparaison_ventes_exportations_chocolat.csv");
     const museeElements = document.querySelectorAll('#section-8 .musee');
 if (museeElements.length > 0) {
     initMuseesVisualisation();
@@ -401,10 +393,6 @@ if (museeElements.length > 0) {
       
 }
 
-
-function updateVisualization(sectionNumber) {
-    console.log(`Mise à jour de la visualisation ${sectionNumber}`);
-}
 
 window.addEventListener('resize', debounce(() => {
     if (state.currentSection && state.charts[state.currentSection]?.resize) {

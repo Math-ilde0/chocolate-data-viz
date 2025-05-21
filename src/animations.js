@@ -216,7 +216,6 @@ export function setupBackToTopButton() {
     return;
   }
   
-  console.log("Back to top button setup started");
   
   // Show button when near bottom of page
   scrollContainer.addEventListener('scroll', () => {
@@ -227,7 +226,6 @@ export function setupBackToTopButton() {
     // Show button when user has scrolled 80% of the way down
     if (scrollTop + clientHeight > scrollHeight * 0.8) {
       backToTopButton.classList.add('visible');
-      console.log("Button should be visible now");
     } else {
       backToTopButton.classList.remove('visible');
     }
@@ -238,9 +236,6 @@ export function setupBackToTopButton() {
     // Utiliser cette méthode pour s'assurer que la page revienne au début après le rechargement
     window.location.href = window.location.pathname;
     
-    // Alternative: forcer un rechargement complet de la page (sans utiliser le cache)
-    // window.location.reload(true);
   });
   
-  console.log("Back to top button setup completed");
 }

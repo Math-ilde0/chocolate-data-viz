@@ -14,7 +14,6 @@ export async function loadAllData() {
             importation: await loadImportationSuisse(),
             musees: await loadFrequentationMusees()
         };
-        console.log("Toutes les données chargées avec succès:", data);
         return data;
     } catch (error) {
         console.error("Erreur lors du chargement des données:", error);

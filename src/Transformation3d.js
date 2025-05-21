@@ -1,6 +1,4 @@
 export function setupConsommationChart3D() {
-    console.log("Application de l'effet 3D...");
-    
     // Attendre plus longtemps pour s'assurer que le graphique est chargé
     setTimeout(() => {
       const vizElement = document.querySelector('#viz-4');
@@ -9,8 +7,6 @@ export function setupConsommationChart3D() {
         console.error("Élément #viz-4 introuvable dans le DOM");
         return;
       }
-      
-      console.log("Élément #viz-4 trouvé, application de l'effet 3D");
       
       try {
         // Ajouter un cadre autour sans transformer le contenu
@@ -62,7 +58,6 @@ export function setupConsommationChart3D() {
           shadow.style.opacity = '0.25';
         });
         
-        console.log("Effet 3D appliqué avec succès");
       } catch (err) {
         console.error("Erreur lors de l'application de l'effet 3D:", err);
       }
