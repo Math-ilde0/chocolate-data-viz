@@ -1,4 +1,6 @@
-export function drawConsommationChart(containerId, csvPath = "./data/comparaison_ventes_exportations_chocolat.csv") {
+import { buildPath } from './BasePath.js';
+
+export function drawConsommationChart(containerId, csvPath = "data/comparaison_ventes_exportations_chocolat.csv") {
   // Vérifier si le conteneur existe
   const container = document.querySelector(containerId);
   if (!container) {
@@ -31,44 +33,31 @@ export function drawConsommationChart(containerId, csvPath = "./data/comparaison
     .style("font-size", "16px")
     .text("Chargement des données...");
   
-  // Chemins vers les images de plaques de chocolat
-  const brunImgPath = "./assets/blond.png"; 
-  const blondImgPath = "./assets/brun.png";
+  // Chemins vers les images de plaques de chocolat avec chemin de base correct
+  const brunImgPath = buildPath("assets/blond.png"); 
+  const blondImgPath = buildPath("assets/brun.png");
   
-  // Essayer d'abord avec le chemin fourni
-  d3.csv(csvPath)
+  // Construire le chemin correct pour le CSV
+  const fullCsvPath = buildPath(csvPath);
+  
+  // Essayer avec le chemin corrigé
+  d3.csv(fullCsvPath)
     .then(processData)
     .catch(error => {
-      console.error("Erreur lors du chargement du CSV avec le chemin fourni:", error);
+      console.error("Erreur lors du chargement du CSV avec le chemin corrigé:", error);
       
-      // Essayer avec un chemin alternatif (sans le préfixe "public")
-      const alternativePath = csvPath.replace("/", "");
-      d3.csv(alternativePath)
-        .then(processData)
-        .catch(error2 => {
-          console.error("Échec du chargement avec le chemin alternatif:", error2);
-          
-          // Dernier essai avec un autre chemin
-          const lastAttemptPath = csvPath.startsWith("/") ? csvPath.substring(1) : "/" + csvPath;
-          d3.csv(lastAttemptPath)
-            .then(processData)
-            .catch(finalError => {
-              console.error("Tous les essais de chargement du CSV ont échoué:", finalError);
-              
-              // Utiliser des données factices pour au moins montrer le graphique
-              const mockData = [
-                {"Année": 2017, "Ventes en Suisse (t)": 54208.5, "Exportations (t)": 127874.7},
-                {"Année": 2018, "Ventes en Suisse (t)": 52363.7, "Exportations (t)": 140564},
-                {"Année": 2019, "Ventes en Suisse (t)": 58280, "Exportations (t)": 141928.7},
-                {"Année": 2020, "Ventes en Suisse (t)": 54294.8, "Exportations (t)": 125679.1},
-                {"Année": 2021, "Ventes en Suisse (t)": 57890.9, "Exportations (t)": 139209.2},
-                {"Année": 2022, "Ventes en Suisse (t)": 55567, "Exportations (t)": 150780.4},
-                {"Année": 2023, "Ventes en Suisse (t)": 57291.2, "Exportations (t)": 150515.9}
-              ];
-              
-              processData(mockData);
-            });
-        });
+      // Utiliser des données factices pour au moins montrer le graphique
+      const mockData = [
+        {"Année": 2017, "Ventes en Suisse (t)": 54208.5, "Exportations (t)": 127874.7},
+        {"Année": 2018, "Ventes en Suisse (t)": 52363.7, "Exportations (t)": 140564},
+        {"Année": 2019, "Ventes en Suisse (t)": 58280, "Exportations (t)": 141928.7},
+        {"Année": 2020, "Ventes en Suisse (t)": 54294.8, "Exportations (t)": 125679.1},
+        {"Année": 2021, "Ventes en Suisse (t)": 57890.9, "Exportations (t)": 139209.2},
+        {"Année": 2022, "Ventes en Suisse (t)": 55567, "Exportations (t)": 150780.4},
+        {"Année": 2023, "Ventes en Suisse (t)": 57291.2, "Exportations (t)": 150515.9}
+      ];
+      
+      processData(mockData);
     });
   
   function processData(data) {
@@ -341,6 +330,7 @@ export function drawConsommationChart(containerId, csvPath = "./data/comparaison
       .attr("text-anchor", "middle")
       .style("font-size", "18px")
       .style("font-weight", "bold")
+  
     // Légende
     const legend = svg.append("g")
       .attr("transform", `translate(${width/2 - 100}, ${margin.top + 1})`);
@@ -395,25 +385,24 @@ export function drawConsommationChart(containerId, csvPath = "./data/comparaison
           const chocolatePieces = group.selectAll(".chocolate-piece");
           
           // Faire disparaître les tablettes
-          // Faire disparaître les tablettes
-chocolatePieces
-.transition()
-.delay(delay + i * 50)
-.duration(500)
-.attr("opacity", 0)
-.transition() // Attendre un peu
-.delay(500)
-.duration(0)
-.attr("transform", function() {
-  return "translate(0,20)"; // Utiliser translate(0,20) au lieu de translateY(20px)
-})
-.transition() // Puis les faire réapparaître
-.delay(200)
-.duration(500)
-.attr("transform", function() {
-  return "translate(0,0)"; // Utiliser translate(0,0) au lieu de translateY(0)
-})
-.attr("opacity", 1);
+          chocolatePieces
+          .transition()
+          .delay(delay + i * 50)
+          .duration(500)
+          .attr("opacity", 0)
+          .transition() // Attendre un peu
+          .delay(500)
+          .duration(0)
+          .attr("transform", function() {
+            return "translate(0,20)"; // Utiliser translate(0,20) au lieu de translateY(20px)
+          })
+          .transition() // Puis les faire réapparaître
+          .delay(200)
+          .duration(500)
+          .attr("transform", function() {
+            return "translate(0,0)"; // Utiliser translate(0,0) au lieu de translateY(0)
+          })
+          .attr("opacity", 1);
           
           // Faire pulser le fond de la barre
           group.select(".bar-background")

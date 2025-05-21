@@ -1,8 +1,8 @@
-
-
 /**
  * Module de chargement des données pour le projet de visualisation du chocolat
  */
+
+import { loadCSV, buildPath } from './BasePath.js';
 
 // Fonction pour charger toutes les données et retourner un objet
 export async function loadAllData() {
@@ -17,14 +17,22 @@ export async function loadAllData() {
         return data;
     } catch (error) {
         console.error("Erreur lors du chargement des données:", error);
-        throw error;
+        
+        // Retourner des données factices en cas d'erreur pour éviter que l'application ne plante
+        return {
+            historique: [],
+            consommation: [],
+            fabricants: [],
+            importation: [],
+            musees: []
+        };
     }
 }
 
 // Charger l'historique du chocolat
 async function loadHistoriqueChocolat() {
     try {
-        const data = await d3.csv("./data/historique_chocolat.csv");
+        const data = await loadCSV("data/historique_chocolat.csv");
         return data.map(d => ({
             annee: +d.annee,
             evenement: d.evenement,
@@ -40,7 +48,7 @@ async function loadHistoriqueChocolat() {
 // Charger la consommation de chocolat en Suisse
 async function loadConsommationSuisse() {
     try {
-        const data = await d3.csv("./data/consommation_suisse.csv");
+        const data = await loadCSV("data/consommation_suisse.csv");
         return data.map(d => ({
             annee: +d.annee,
             consommationKg: +d.consommation_par_habitant,
@@ -55,7 +63,7 @@ async function loadConsommationSuisse() {
 // Charger les principaux fabricants de chocolat en Suisse
 async function loadFabricantsSuisse() {
     try {
-        const data = await d3.csv("./data/fabricants_suisse.csv");
+        const data = await loadCSV("data/fabricants_suisse.csv");
         return data.map(d => ({
             fabricant: d.fabricant,
             anneeCreation: +d.annee_de_creation,
@@ -70,7 +78,7 @@ async function loadFabricantsSuisse() {
 // Charger les importations de chocolat en Suisse
 async function loadImportationSuisse() {
     try {
-        const data = await d3.csv("./data/importations_suisse.csv");
+        const data = await loadCSV("data/importations_suisse.csv");
         return data.map(d => ({
             annee: +d.annee,
             quantiteImportee: +d.quantite_importee,
@@ -85,7 +93,7 @@ async function loadImportationSuisse() {
 // Charger la fréquentation des musées du chocolat en Suisse
 async function loadFrequentationMusees() {
     try {
-        const data = await d3.csv("./data/musees_chocolat.csv");
+        const data = await loadCSV("data/musees_chocolat.csv");
         return data.map(d => ({
             musee: d.musee,
             annee: +d.annee,

@@ -5,13 +5,18 @@
 import { drawConsommationChart } from "./consommationChart.js";
 import { loadAllData } from "./data_loader.js";
 import { initMuseesVisualisation } from './musee.js';
-import { setupChocolateProgressBar, setupGlobeToChartTransition, setupGenreToMuseeTransition, setupBackToTopButton, setupIntroClickNavigation} from './animations.js';
+import { setupChocolateProgressBar, setupGlobeToChartTransition, setupGenreToMuseeTransition, setupBackToTopButton, setupIntroClickNavigation } from './animations.js';
 import { initFeves, animateViz2Titles, animateViz2Bars } from './feve.js';
 import { setupTimelineSlideIn } from './viz1_animation.js';
 import { initCarousel } from './fabricants_marques.js';
 import { initGenreIndustrie } from './genre_industrie.js';
 import { setupConsommationChart3D } from './Transformation3d.js';
+import { buildPath } from './BasePath.js';
+import { initDebugHelper } from './debugHelpers.js';
 
+// Initialiser le débogueur
+const logDebug = initDebugHelper();
+logDebug("Script principal chargé");
 
 // Configuration globale
 const config = {
@@ -36,20 +41,22 @@ const state = {
 };
 
 // Initialisation
-
 document.addEventListener('DOMContentLoaded', async () => {
+    logDebug("DOM chargé, initialisation...");
     showLoader();
 
     try {
         const loadedData = await loadAllData();
         state.data = loadedData;
         state.isDataLoaded = true;
+        logDebug("Données chargées avec succès");
     } catch (error) {
         console.error("Erreur lors du chargement des données:", error);
         showErrorMessage("Impossible de charger les données. Veuillez rafraîchir la page ou réessayer plus tard.");
         return;
     }
 
+    logDebug("Début de l'initialisation des composants");
     hideLoader();
     setupIntroClickNavigation();
     setupScrollTriggers();
@@ -59,22 +66,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupGlobeToChartTransition();
     setupGenreToMuseeTransition();
 
-
     if (typeof animateViz2Titles === 'function') {
         animateViz2Titles().then(() => animateViz2Bars());
-      }
+    }
     initFeves();
     initCarousel();
     initGenreIndustrie();
 
-     // Ajouter l'effet 3D pour la section de consommation
-     setupConsommationChart3D();
+    // Ajouter l'effet 3D pour la section de consommation
+    setupConsommationChart3D();
     
-     // Ajouter des paillettes de chocolat qui tombent lors du scroll
-     setupChocolateParticles();
+    // Ajouter des paillettes de chocolat qui tombent lors du scroll
+    setupChocolateParticles();
     setupTimelineSlideIn();
 
     setupBackToTopButton();
+    logDebug("Initialisation terminée");
 });
 
 function showErrorMessage(message) {
@@ -372,6 +379,7 @@ function setupChocolateParticles() {
 }
 
 async function initVisualizations() {
+    logDebug("Initialisation des visualisations...");
     if (!state.isDataLoaded) {
         console.error("Les données ne sont pas encore chargées");
         return;
@@ -379,20 +387,26 @@ async function initVisualizations() {
 
     // Section 4 – 🌍 Globe interactif + Consommation
     if (!state.globeDrawn) {
-        import("./globe.js").then(({ drawGlobe }) => {
-            drawGlobe("#viz-3");
+        logDebug("Chargement du globe...");
+        try {
+            const globeModule = await import("./globe.js");
+            globeModule.drawGlobe("#viz-3");
             state.globeDrawn = true;
-        });
+            logDebug("Globe chargé avec succès");
+        } catch (error) {
+            console.error("Erreur lors du chargement du globe:", error);
+        }
     }
-    drawConsommationChart("#viz-4", "./data/comparaison_ventes_exportations_chocolat.csv");
+    
+    logDebug("Chargement du graphique de consommation...");
+    drawConsommationChart("#viz-4", buildPath("data/comparaison_ventes_exportations_chocolat.csv"));
+    
     const museeElements = document.querySelectorAll('#section-8 .musee');
-if (museeElements.length > 0) {
-    initMuseesVisualisation();
+    if (museeElements.length > 0) {
+        logDebug("Initialisation de la visualisation des musées...");
+        initMuseesVisualisation();
+    }
 }
-
-      
-}
-
 
 window.addEventListener('resize', debounce(() => {
     if (state.currentSection && state.charts[state.currentSection]?.resize) {
