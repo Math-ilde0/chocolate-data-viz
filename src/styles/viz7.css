@@ -1,6 +1,5 @@
 /* ---------- base ---------- */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Pacifico', cursive;}
-body{background:#fff7ef;color:#5c3d2e}
 .wrapper{max-width:950px;margin:2rem auto;padding:0 1rem;text-align:center}
 h1{font-size:1.9rem;color:#5c3d2e;margin-bottom:2rem}
 .source{font-size:.85rem;color:#5b5b5b;margin-top:1.5rem}
