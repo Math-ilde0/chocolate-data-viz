@@ -1,10 +1,16 @@
-# chocolate-data-viz
+# Aux origines du chocolat suisse
 
 ## Description du projet
+Ce projet universitaire de visualisation de données raconte l'histoire fascinante du chocolat en Suisse à travers une expérience de scrollytelling immersive. Il explore comment ce petit pays, sans production de cacao, est devenu une référence mondiale du chocolat de qualité.
 
-Ce projet universitaire vise à visualiser l’histoire du chocolat, son importation en Suisse et son évolution au fil du temps. Nous combinons des données historiques et économiques avec un jeu de données que nous avons créé afin d’apporter une perspective unique à notre analyse.
+Auteurs : Estelle Rossier, Mathilde Jaccard et Samuel Teixeira
 
-L’implémentation repose sur **D3.js** pour générer des visualisations interactives.
+Année : 2025
+
+<img width="1373" alt="preview" src="https://github.com/user-attachments/assets/d09b36b2-28fc-44c4-974a-151002a914f5" />
+
+## Démonstration
+Version en ligne : https://youtu.be/YkfXZEd32pk?si=9xhR6vm6lPbMg-hm 
 
 ## Données utilisées
 
@@ -96,21 +102,36 @@ Les données proviennent de plusieurs sources externes ainsi que de nos propres 
 📊 Type de données : Quantitative discrète
 
 
-## Objectifs du projet
+## Objectifs
 
-- **Analyser** l’évolution du chocolat à travers les siècles  
-- **Visualiser** les tendances des importations et exportations  
-- **Expliquer** l’impact économique et culturel du chocolat en Suisse  
+- Raconter l'évolution du chocolat à travers les siècles
+- Visualiser les tendances des importations et exportations
+- Expliquer l'impact économique et culturel du chocolat en Suisse
+- Créer une expérience utilisateur immersive et pédagogique
 
 ## Technologies utilisées
 
-- **D3.js** pour la visualisation des données  
-- **HTML, CSS, JavaScript** pour l’interface utilisateur  
-- **GitHub** pour le versionnement et l’hébergement du code  
+- D3.js v7 - Visualisation de données interactives
+- HTML5/CSS3 - Structure et design responsive
+- JavaScript ES6+ - Logique applicative et animations
+. Vite - Build tool et serveur de développement
+- GitHub Pages - Hébergement et déploiement
 
-## Installation et exécution
+## Étapes d'installation
 
-### Option 1 : Utilisation du CDN (aucune installation requise)
-Ajoutez le lien suivant dans `index.html` :
-```html
-<script src="https://d3js.org/d3.v7.min.js"></script>
+1. Cloner le repository
+   
+   git clone https://github.com/votre-username/chocolate-data-viz.git
+   cd chocolate-data-viz
+
+2. Installer les dépendances
+   
+   npm install
+
+3. Lancer le serveur de développement
+   
+   npm run dev
+
+4. Ouvrir dans le navigateur
+   
+   http://localhost:5173
